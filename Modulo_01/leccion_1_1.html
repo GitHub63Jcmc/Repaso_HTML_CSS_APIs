@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.1 El desarrollo web en cliente</title>
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    <header>
+      <h2>1.1 El desarrollo web en cliente: qué hace cada pieza</h2>
+    </header>
+
+    <section class="concepto-capas">
+      <h3>Las tres capas del Front-End</h3>
+      <ul>
+        <li><strong>HTML:</strong> Estructura y significado semántico del contenido.</li>
+        <li><strong>CSS:</strong> Presentación, diseño visual y maquetación.</li>
+        <li><strong>JavaScript:</strong> Comportamiento dinámico e interactividad con el usuario.</li>
+      </ul>
+    </section>
+
+    <section class="flujo-navegador">
+      <h3>Pasos del navegador al cargar una página</h3>
+      <ol>
+        <li>Descarga de archivos desde el servidor.</li>
+        <li>Conversión del HTML en el árbol <strong>DOM</strong> (Document Object Model).</li>
+        <li>Aplicación de estilos CSS a cada nodo.</li>
+        <li>Renderizado / Pintado de la página en pantalla.</li>
+        <li>Ejecución de JavaScript para manipular el DOM según la interacción.</li>
+      </ol>
+    </section>
+
+    <section class="devtools-info">
+      <h3>Herramientas clave</h3>
+      <p><strong>DevTools del navegador:</strong> Imprescindibles para inspeccionar el DOM activo, depurar errores en consola y monitorear el   rendimiento.</p>
+    </section>
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

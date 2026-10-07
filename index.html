@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Repaso - HTML5, CSS3 & APIs</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Carga de Web Components -->
+  <script type="module" src="components/Header.js"></script>
+  <script type="module" src="components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="dashboard-container">
+    <section class="welcome-card">
+      <h2>Portal de Repaso Teórico y Práctico</h2>
+      <p>Selecciona un módulo para acceder a sus lecciones, apuntes interactivos y ejercicios prácticos.</p>
+    </section>
+
+    <div class="modules-grid">
+      <!-- Tarjeta Módulo 1 -->
+      <article class="module-card">
+        <h3>Módulo 01: HTML5 Semántico y Multimedia</h3>
+        <p>Estructura semántica, desarrollo web en cliente, elementos multimedia y formularios avanzados.</p>
+        <a href="Modulo_01/leccion_1_1.html" class="btn-primary">Ver Lecciones</a>
+      </article>
+
+      <!-- Tarjeta Módulo 2 -->
+      <article class="module-card disabled">
+        <h3>Módulo 02: CSS3 Avanzado</h3>
+        <p>Selectores, Flexbox, CSS Grid, tipografía web, transformaciones y animaciones 2D/3D.</p>
+        <button class="btn-secondary" disabled>Próximamente</button>
+      </article>
+
+      <!-- Tarjeta Módulo 3 -->
+      <article class="module-card disabled">
+        <h3>Módulo 03: APIs HTML5 & JS</h3>
+        <p>Geolocation, Fetch API, Web Storage, Drag & Drop y desarrollo con componentes.</p>
+        <button class="btn-secondary" disabled>Próximamente</button>
+      </article>
+    </div>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>
