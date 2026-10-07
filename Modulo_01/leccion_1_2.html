@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.2 De HTML a HTML5: qué cambió de verdad</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.2 De HTML a HTML5: qué cambió de verdad</h2>
+    </header>
+
+    <section>
+      <p>HTML5 no fue solo una versión más. Se asumió que la web se había convertido en una plataforma de aplicaciones y actuó en consecuencia. Tres decisiones lo resumen: <strong>simplificar lo que había, dar significado al marcado y llevar al navegador capacidades que antes exigían complementos</strong>.</p>
+    </section>
+
+    <!-- Tabla Comparativa -->
+    <section>
+      <h3>Comparativa: Antes vs Con HTML5</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Asunto</th>
+            <th style="padding: 0.8rem;">Antes</th>
+            <th style="padding: 0.8rem;">Con HTML5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Declaración del doc</strong></td>
+            <td style="padding: 0.8rem;">Línea larga con DTD externo</td>
+            <td style="padding: 0.8rem;"><code>&lt;!DOCTYPE html&gt;</code></td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Codificación</strong></td>
+            <td style="padding: 0.8rem;"><code>&lt;meta http-equiv="Content-Type"...&gt;</code></td>
+            <td style="padding: 0.8rem;"><code>&lt;meta charset="utf-8"&gt;</code></td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Estructura</strong></td>
+            <td style="padding: 0.8rem;">Divisiones genéricas con clases (<code>div</code>)</td>
+            <td style="padding: 0.8rem;">Etiquetas semánticas: <code>header</code>, <code>nav</code>, <code>article</code>...</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Vídeo y audio</strong></td>
+            <td style="padding: 0.8rem;">Plugins externos (Flash, Silverlight)</td>
+            <td style="padding: 0.8rem;">Etiquetas nativas del navegador</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Gráficos</strong></td>
+            <td style="padding: 0.8rem;">Imágenes preparadas o complejas</td>
+            <td style="padding: 0.8rem;">Lienzo de dibujo (Canvas) y SVG vectorial</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Validación formularios</strong></td>
+            <td style="padding: 0.8rem;">Siempre a mano con JavaScript</td>
+            <td style="padding: 0.8rem;">Nativa, con atributos en el propio HTML</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Guardar datos</strong></td>
+            <td style="padding: 0.8rem;">Cookies limitadas e enviadas en cada petición</td>
+            <td style="padding: 0.8rem;">Almacenamiento propio (Web Storage API)</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><strong>Etiquetas de aspecto</strong></td>
+            <td style="padding: 0.8rem;">Centrar o cambiar letra desde el HTML</td>
+            <td style="padding: 0.8rem;">Retiradas: trabajo exclusivo de CSS</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Conceptos Importantes -->
+    <section>
+      <h3>Cómo leer un documento mal escrito</h3>
+      <p>HTML5 especificó exactamente cómo debe interpretarse el código imperfecto. Antes, cada navegador improvisaba ante un error de sintaxis; ahora el procedimiento de lectura está definido en la norma, asegurando que todos los navegadores construyan el mismo árbol DOM.</p>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Compatibilidad hacia atrás</h3>
+      <p>HTML5 se declaró <strong>compatible hacia atrás</strong>. Una página escrita hace veinte años sigue funcionando hoy. La forma natural de trabajar con las novedades es la <strong>mejora progresiva</strong>: construir para que funcione en todas partes y añadir encima lo que cada navegador sepa aprovechar.</p>
+    </section>
+
+    <section>
+      <h3>HTML5 como Estándar Vivo (Living Standard)</h3>
+      <p>HTML5 tampoco se publica ya por versiones numeradas. La norma es un <strong>estándar vivo</strong> que se actualiza de forma continua. Existen tablas de compatibilidad pública para consultar soporte por función, además de comprobaciones en CSS (<code>@supports</code>) o JavaScript previo uso de APIs.</p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

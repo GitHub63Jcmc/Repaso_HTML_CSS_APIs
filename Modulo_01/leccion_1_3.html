@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.3 Estructura semántica: header, footer, section, article, nav y aside</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.3 Estructura semántica: header, footer, section, article, nav y aside</h2>
+    </header>
+
+    <section>
+      <p>Antes de HTML5, las páginas se construían apilando <code>&lt;div&gt;</code> genéricos sin significado que solo el desarrollador sabía interpretar[cite: 12]. Las <strong>etiquetas semánticas</strong> indican qué es el contenido que envuelven, no cómo se ve[cite: 12]. Un lector de pantalla puede saltar directamente a la navegación, un buscador identifica dónde está el contenido principal y cualquier compañero de equipo entiende la página con solo leer el código[cite: 12].</p>
+    </section>
+
+    <!-- Tabla de etiquetas y su función -->
+    <section>
+      <h3>Regiones y Etiquetas Semánticas</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Etiqueta</th>
+            <th style="padding: 0.8rem;">Qué representa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;header&gt;</code></td>
+            <td style="padding: 0.8rem;">Cabecera de la página o de una sección: logotipo, título, buscador...[cite: 12]</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;nav&gt;</code></td>
+            <td style="padding: 0.8rem;">Bloque de enlaces de navegación principal (menús)[cite: 12].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;main&gt;</code></td>
+            <td style="padding: 0.8rem;">Contenido principal del documento; solo puede haber uno visible por página[cite: 12].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;section&gt;</code></td>
+            <td style="padding: 0.8rem;">Agrupación temática de contenido, normalmente con su propio encabezado[cite: 12].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;article&gt;</code></td>
+            <td style="padding: 0.8rem;">Contenido independiente y autocontenido: una noticia, un post, una ficha de producto[cite: 12].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;aside&gt;</code></td>
+            <td style="padding: 0.8rem;">Contenido relacionado pero secundario: barras laterales, widgets, publicidad[cite: 12].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>&lt;footer&gt;</code></td>
+            <td style="padding: 0.8rem;">Pie de página o de una sección: créditos, contacto, avisos legales[cite: 12].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code></td>
+            <td style="padding: 0.8rem;">Contenido ilustrativo (imagen, gráfico) con su pie explicativo[cite: 12].</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Regla práctica para elegir etiquetas -->
+    <section>
+      <h3>Regla práctica para elegir entre etiquetas</h3>
+      <ul>
+        <li><strong>&lt;article&gt;:</strong> Utilízalo si el bloque tendría sentido publicado por sí solo (por ejemplo, una noticia en un lector RSS)[cite: 12].</li>
+        <li><strong>&lt;section&gt;:</strong> Utilízalo si agrupa contenido por tema dentro de la página[cite: 12].</li>
+        <li><strong>&lt;div&gt;:</strong> Si no aporta ningún significado y solo lo necesitas para agrupar o dar estilo (CSS), <code>&lt;div&gt;</code> sigue siendo perfectamente válido[cite: 12].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Apariencia vs Valor Real</h3>
+      <p>
+        Las etiquetas semánticas <strong>no cambian la apariencia por sí mismas</strong>[cite: 12]. Su valor real está en la <strong>accesibilidad</strong>, el <strong>posicionamiento en buscadores (SEO)</strong> y el <strong>mantenimiento del código</strong>[cite: 12].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

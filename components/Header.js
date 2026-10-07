@@ -21,6 +21,8 @@ class MainHeader extends HTMLElement {
               <a href="${basePath}Modulo_01/index.html">Índice del Módulo</a>
               <a href="${basePath}Modulo_01/leccion_1_1.html">1.1 Desarrollo Web Cliente</a>
               <a href="${basePath}Modulo_01/leccion_1_2.html">1.2 Semántica HTML5</a>
+              <a href="${basePath}Modulo_01/leccion_1_3.html">1.3 Estructura semántica</a>
+              <a href="#">1.4 Nuevos elementos multimedia</a>
             </div>
           </div>
 
