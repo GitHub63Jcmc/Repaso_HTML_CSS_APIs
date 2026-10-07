@@ -42,6 +42,7 @@ main, article.apunte-leccion, .dashboard-container {
 
 .nav-menu {
   display: flex;
+  align-items: center; /* Alinea verticalmente todos los elementos (enlaces y dropdowns) */
   gap: 1rem;
 }
 
@@ -209,4 +210,44 @@ li strong {
 
 .devtools-info strong {
   color: var(--accent-color);
+}
+
+/* --- Dropdown Navegación --- */
+.dropdown {
+  position: relative;
+  display: flex; /* Cambiado de inline-block a flex para alinear con el resto de enlaces */
+  /* display: inline-block; */
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--card-bg);
+  min-width: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  z-index: 100;
+}
+
+.dropdown-content a {
+  color: var(--text-muted);
+  padding: 0.6rem 1rem;
+  display: block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent-color);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
