@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.7 Panorama de las nuevas APIs y compatibilidad con dispositivos móviles</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.7 Panorama de las nuevas APIs y compatibilidad con dispositivos móviles</h2>
+    </header>
+
+    <section>
+      <p>Además de etiquetas y atributos, HTML5 trajo un conjunto de <strong>APIs</strong> (<em>Interfaz de Programación de Aplicaciones</em>)[cite: 10]. Una API es el conjunto de funciones que el navegador pone a disposición de JavaScript para hacer algo que el marcado por sí solo no puede: dibujar, guardar datos, pedir la posición o mantener una conversación con el servidor[cite: 10].</p>
+    </section>
+
+    <!-- Mapa de Capacidades -->
+    <section>
+      <h3>Capacidades incorporadas al navegador</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Área</th>
+            <th style="padding: 0.8rem;">Funcionalidades de la API</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Dibujar</strong></td>
+            <td style="padding: 0.8rem;">Lienzo de mapa de bits (<code>Canvas</code>) y gráficos vectoriales (<code>SVG</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Reproducir</strong></td>
+            <td style="padding: 0.8rem;">Vídeo y audio nativos con control por código y subtítulos[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Guardar en el equipo</strong></td>
+            <td style="padding: 0.8rem;">Almacenamiento de clave-valor (<code>localStorage</code>) y bases de datos en cliente (<code>IndexedDB</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Interactuar</strong></td>
+            <td style="padding: 0.8rem;">Arrastrar y soltar (<em>Drag and Drop</em>), pantalla completa y avisos/notificaciones[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><strong>Situar</strong></td>
+            <td style="padding: 0.8rem;">Coordenadas del dispositivo con permiso explícito (<code>Geolocation API</code>)[cite: 10].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><strong>Comunicar</strong></td>
+            <td style="padding: 0.8rem;">Conexión permanente en dos sentidos entre cliente y servidor (<code>WebSockets</code>)[cite: 10].</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Adaptación Móvil -->
+    <section>
+      <h3>La otra pata de HTML5: Adaptación a Móviles</h3>
+      <p>Cuando la web se desplazó a los teléfonos, HTML5 respondió con herramientas de adaptación[cite: 10]:</p>
+      <ul>
+        <li><strong>Etiqueta Viewport:</strong> <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> le indica al navegador que use el ancho real del dispositivo en lugar de fingir una pantalla de escritorio[cite: 10].</li>
+        <li><strong>Teclados adaptados:</strong> Los tipos de input especifican el teclado táctil adecuado (números, correo, URL)[cite: 10].</li>
+        <li><strong>Eventos táctiles:</strong> Eventos diseñados para la interacción con el dedo en lugar del ratón[cite: 10].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>⚠️ ATENCIÓN: Detección de Características</h3>
+      <p>
+        Ninguna de estas capacidades se debe dar por supuesta[cite: 10]. Antes de usar una API, comprueba desde JavaScript si el navegador la soporta y prepara una alternativa si no es así[cite: 10]. Es la base de la <strong>mejora progresiva</strong>[cite: 10].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.4 Nuevos elementos multimedia: video, audio y source</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.4 Nuevos elementos multimedia: video, audio y source</h2>
+    </header>
+
+    <section>
+      <p>Hasta HTML5, reproducir un vídeo o audio exigía plugins externos como Flash[cite: 10]. Las etiquetas <code>&lt;video&gt;</code> y <code>&lt;audio&gt;</code> incorporaron la reproducción multimedia directamente al navegador sin instalar nada[cite: 10]. Ambas funcionen con el atributo <code>src</code> o con etiquetas <code>&lt;source&gt;</code> hijas[cite: 10]. El texto escrito entre la apertura y el cierre solo se muestra en navegadores antiguos no compatibles[cite: 10].</p>
+    </section>
+
+    <!-- Elemento Video -->
+    <section>
+      <h3>La etiqueta &lt;video&gt;</h3>
+      <p>Inserta un reproductor de vídeo directo en la página[cite: 10].</p>
+      <ul>
+        <li><strong>Ejemplo básico:</strong> <code>&lt;video src="clip.mp4" controls width="680"&gt;&lt;/video&gt;</code>[cite: 10]</li>
+        <li><strong>Atributos más usados:</strong>
+          <ul>
+            <li><code>controls</code>: Muestra los controles de reproducción del navegador[cite: 10].</li>
+            <li><code>autoplay</code>: Intenta reproducir el contenido automáticamente al cargar[cite: 10].</li>
+            <li><code>loop</code>: Repite la reproducción en bucle[cite: 10].</li>
+            <li><code>muted</code>: Inicia la reproducción sin sonido[cite: 10].</li>
+            <li><code>poster</code>: Imagen que se muestra antes de reproducir el vídeo[cite: 10].</li>
+          </ul>
+        </li>
+        <li><strong>Formatos estándar:</strong> MP4 (códec H.264) y WebM[cite: 10].</li>
+      </ul>
+    </section>
+
+    <!-- Elemento Audio -->
+    <section>
+      <h3>La etiqueta &lt;audio&gt;</h3>
+      <p>Inserta un reproductor de sonido nativo en el documento[cite: 10].</p>
+      <ul>
+        <li><strong>Ejemplo básico:</strong> <code>&lt;audio src="tema.mp3" controls&gt;&lt;/audio&gt;</code>[cite: 10]</li>
+        <li><strong>Atributos principales:</strong> Comparte <code>controls</code>, <code>autoplay</code>, <code>loop</code> y <code>muted</code>[cite: 10]. Añade <code>preload</code> (opciones: <code>none</code>, <code>metadata</code> o <code>auto</code>) para gestionar la descarga previa del archivo[cite: 10].</li>
+        <li><strong>Formatos universales:</strong> MP3, OGG y AAC[cite: 10].</li>
+      </ul>
+    </section>
+
+    <!-- Multi-fuente con Source y Track -->
+    <section>
+      <h3>Etiquetas &lt;source&gt; y &lt;track&gt;</h3>
+      <ul>
+        <li><strong>&lt;source&gt;:</strong> Permite colocar varias opciones de archivo con formatos distintos dentro de un vídeo o audio[cite: 10]. El navegador recorre la lista y reproduce la primera alternativa compatible[cite: 10].
+          <br><code>&lt;source src="video.webm" type="video/webm"&gt;</code>[cite: 10]
+        </li>
+        <li><strong>&lt;track&gt;:</strong> Añade subtítulos o transcripciones sincronizadas en formato WebVTT para mejorar la accesibilidad[cite: 10].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Reproducción automática (Autoplay)</h3>
+      <p>
+        Los navegadores actuales <strong>bloquean la reproducción automática con sonido</strong> para no molestar al usuario[cite: 10]. Si necesitas usar <code>autoplay</code>, debes combinarlo siempre con el atributo <code>muted</code>[cite: 10].
+      </p>
+    </section>
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

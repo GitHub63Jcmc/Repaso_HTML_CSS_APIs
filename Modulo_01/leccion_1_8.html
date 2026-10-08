@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.8 Resumen del módulo 1</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.8 Resumen del módulo 1</h2>
+    </header>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE</h3>
+      <p>
+        <strong>Las etiquetas dicen qué es el contenido, no cómo se ve[cite: 10].</strong> HTML5 no añadió etiquetas para que las páginas se vieran distintas; las añadió para que el contenido dijera lo que es[cite: 10]. Ese cambio no se aprecia en la pantalla; se aprecia en quien lee la página sin verla, en el buscador que la indexa y en el compañero que mantiene la página seis meses después[cite: 10].
+      </p>
+    </section>
+
+    <section>
+      <h3>Lo demás que conviene retener</h3>
+      <ul>
+        <li>
+          <strong>Tres capas separadas y un árbol en medio:</strong> HTML (estructura y significado), CSS (presentación) y JavaScript (comportamiento)[cite: 10]. El navegador convierte el marcado en el DOM, y todo lo que un script modifica son nodos de ese árbol[cite: 10].
+        </li>
+        <li>
+          <strong>La etiqueta se elige por el significado del bloque, no por su aspecto:</strong> Si tendría sentido publicado por sí solo, un <code>&lt;article&gt;</code>[cite: 10]; si agrupa contenido por tema dentro de la página, una <code>&lt;section&gt;</code>[cite: 10]; y si no significa nada y solo la necesitas para agrupar o dar estilo, la división genérica <code>&lt;div&gt;</code> sigue siendo perfectamente válida[cite: 10].
+        </li>
+        <li>
+          <strong>El multimedia dejó de necesitar complementos, pero trajo sus propias reglas:</strong> Varias fuentes para que el navegador reproduzca el primer formato que admita[cite: 10], pista de subtítulos por accesibilidad[cite: 10], y reproducción automática solo si va sin sonido (<code>muted</code>)[cite: 10].
+        </li>
+        <li>
+          <strong>La validación nativa es cómoda, pero no suficiente:</strong> Campo obligatorio (<code>required</code>)[cite: 10], patrón (<code>pattern</code>)[cite: 10], mínimo o máximo ahorran JavaScript y el navegador impide el envío[cite: 10], pero la validación en el servidor sigue siendo imprescindible[cite: 10]. Y los tipos de mes y semana no existen en todos los navegadores[cite: 10].
+        </li>
+        <li>
+          <strong>Los atributos globales valen en cualquier etiqueta; los de datos son la vía estándar para los tuyos:</strong> Identificador (<code>id</code>), clase (<code>class</code>), idioma (<code>lang</code>) o título (<code>title</code>) se aplican a todo[cite: 10], y los atributos de datos (<code>data-*</code>) se leen desde JavaScript sin inventar nada que no sea válido[cite: 10].
+        </li>
+        <li>
+          <strong>Nada se da por supuesto, y el móvil tampoco:</strong> Se comprueba el soporte función por función y se prepara alternativa[cite: 10], y sin la etiqueta de ventana gráfica (<code>meta viewport</code>), un diseño adaptable no se comporta como debe en el teléfono[cite: 10].
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <p style="margin-top: 1.5rem; color: var(--accent-color);">
+        Con la estructura y los atributos de HTML5 vistos, el Módulo 2 se ocupa de la otra mitad de la página: cómo se presenta ese marcado con las novedades de CSS3[cite: 10].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

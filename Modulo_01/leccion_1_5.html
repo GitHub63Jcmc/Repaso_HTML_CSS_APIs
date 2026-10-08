@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.5 Elementos de formulario avanzados y nuevos tipos de input</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.5 Elementos de formulario avanzados y nuevos tipos de input</h2>
+    </header>
+
+    <section>
+      <p>Los formularios son la vía de entrada de datos del usuario, y la etiqueta <code>&lt;input&gt;</code> es su pieza más versátil[cite: 11]. HTML5 multiplicó los tipos disponibles y añadió <strong>validación nativa</strong>, de modo que muchas comprobaciones que antes exigían JavaScript ahora las realiza directamente el navegador[cite: 11].</p>
+    </section>
+
+    <!-- Tabla de Tipos de Input -->
+    <section>
+      <h3>Tipos de input en HTML5</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Tipo de input</th>
+            <th style="padding: 0.8rem;">Para qué sirve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>email / url / tel</code></td>
+            <td style="padding: 0.8rem;">Correo, dirección web y teléfono[cite: 11]. Validan el formato y en el móvil muestran el teclado adecuado[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>number / range</code></td>
+            <td style="padding: 0.8rem;">Valores numéricos: campo con flechas o control deslizante; admiten <code>min</code>, <code>max</code> y <code>step</code>[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>date / time / datetime-local</code></td>
+            <td style="padding: 0.8rem;">Selectores de fecha y hora nativos, sin necesidad de librerías externas[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>month / week</code></td>
+            <td style="padding: 0.8rem;">Mes o semana del año[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>color</code></td>
+            <td style="padding: 0.8rem;">Abre el selector de color nativo del sistema[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>search</code></td>
+            <td style="padding: 0.8rem;">Campo de búsqueda, con estilo y comportamiento propios en algunos navegadores[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>file</code></td>
+            <td style="padding: 0.8rem;">Selección de archivos; con el atributo <code>multiple</code> admite varios a la vez[cite: 11].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>hidden / password / checkbox / radio</code></td>
+            <td style="padding: 0.8rem;">Tipos clásicos que siguen siendo esenciales[cite: 11].</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Atributos y Elementos Complementarios -->
+    <section>
+      <h3>Validación Nativa y Elementos de Apoyo</h3>
+      <ul>
+        <li><strong>Atributos de validación:</strong> <code>required</code> (campo obligatorio)[cite: 11], <code>pattern</code> (expresión regular que debe cumplir)[cite: 11], <code>minlength</code>, <code>maxlength</code>[cite: 11], <code>min</code>, <code>max</code> y <code>step</code>[cite: 11].</li>
+        <li><strong>Estilos CSS por estado:</strong> Mediante pseudo-clases como <code>:valid</code> e <code>:invalid</code> se pueden resaltar los campos según su validez[cite: 11].</li>
+        <li><strong>Nuevos elementos:</strong> 
+          <code>&lt;datalist&gt;</code> (lista de sugerencias para un input)[cite: 11], 
+          <code>&lt;output&gt;</code> (resultado de un cálculo)[cite: 11], 
+          <code>&lt;progress&gt;</code> (barra de progreso)[cite: 11] y 
+          <code>&lt;meter&gt;</code> (medida dentro de un rango)[cite: 11].</li>
+        <li><strong>Atributos de ayuda:</strong> <code>placeholder</code>, <code>autofocus</code> y <code>autocomplete</code>[cite: 11].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Validación en Cliente vs Servidor</h3>
+      <p>
+        La validación del navegador mejora la experiencia de usuario, pero <strong>nunca sustituye a la validación en el servidor</strong>[cite: 11]: cualquier usuario puede saltarse la validación del cliente[cite: 11]. Valida siempre en ambos lados[cite: 11].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

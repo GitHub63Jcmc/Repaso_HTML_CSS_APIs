@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.6 Atributos globales y específicos de las nuevas etiquetas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 1. NUEVAS ETIQUETAS Y ATRIBUTOS DE HTML5</h1>
+    
+    <header>
+      <h2>1.6 Atributos globales y específicos de las nuevas etiquetas</h2>
+    </header>
+
+    <section>
+      <p>Los <strong>atributos</strong> son palabras clave que se escriben dentro de la etiqueta y modifican su comportamiento[cite: 10]. Los <strong>globales</strong> pueden aplicarse a cualquier elemento; los <strong>específicos</strong> solo tienen sentido en etiquetas concretas (como <code>poster</code> en <code>&lt;video&gt;</code> o <code>required</code> en <code>&lt;input&gt;</code>)[cite: 10].</p>
+    </section>
+
+    <!-- Tabla de Atributos Globales -->
+    <section>
+      <h3>Atributos Globales Clave</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Atributo global</th>
+            <th style="padding: 0.8rem;">Qué hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>id</code></td>
+            <td style="padding: 0.8rem;">Identificador único de un elemento en el documento; lo usan CSS, JavaScript y enlaces internos[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>class</code></td>
+            <td style="padding: 0.8rem;">Asigna una o varias clases (separadas por espacios) para compartir estilos[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>lang</code> y <code>dir</code></td>
+            <td style="padding: 0.8rem;">Idioma del contenido y dirección de escritura (<code>ltr</code> / <code>rtl</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>title</code></td>
+            <td style="padding: 0.8rem;">Información adicional que aparece al detener el ratón sobre el elemento[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>data-*</code></td>
+            <td style="padding: 0.8rem;"><strong>Novedad HTML5:</strong> atributos de datos personalizados (<code>data-precio</code>, <code>data-id</code>) legibles desde JS mediante <code>dataset</code>[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>hidden</code></td>
+            <td style="padding: 0.8rem;"><strong>Novedad HTML5:</strong> oculta el elemento sin necesidad de CSS[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>contenteditable</code></td>
+            <td style="padding: 0.8rem;"><strong>Novedad HTML5:</strong> hace editable el contenido directamente en la página[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>translate</code></td>
+            <td style="padding: 0.8rem;">Indica si el texto debe traducirse automáticamente o no (<code>translate="no"</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>tabindex</code> y <code>accesskey</code></td>
+            <td style="padding: 0.8rem;">Controlan el orden de foco con el teclado y los atajos de teclado[cite: 10].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>style</code></td>
+            <td style="padding: 0.8rem;">CSS en línea sobre la propia etiqueta[cite: 10].</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Atributos Específicos y Novedades -->
+    <section>
+      <h3>Atributos Específicos Destacados</h3>
+      <ul>
+        <li><strong>Multimedia:</strong> <code>autoplay</code>, <code>controls</code>, <code>loop</code>, <code>muted</code>, <code>poster</code>, <code>preload</code>[cite: 10].</li>
+        <li><strong>Formularios:</strong> <code>placeholder</code>, <code>required</code>, <code>pattern</code>, <code>multiple</code>, <code>autofocus</code>[cite: 10].</li>
+        <li><strong>Enlaces:</strong> Atributo <code>download</code> en las etiquetas <code>&lt;a&gt;</code>, que convierte en descarga directa el enlace a un archivo[cite: 10].</li>
+      </ul>
+    </section>
+
+    <!-- Preguntas Frecuentes / Puntos Clave -->
+    <section>
+      <h3>Preguntas Frecuentes</h3>
+      <ul>
+        <li><strong>¿Qué pasó con las etiquetas antiguas?</strong> HTML5 declaró obsoletas las etiquetas puramente presentacionales (<code>&lt;center&gt;</code>, <code>&lt;font&gt;</code>, <code>&lt;big&gt;</code>, <code>&lt;blink&gt;</code>, <code>&lt;frame&gt;</code>, <code>&lt;strike&gt;</code>) para delegar todo el estilo a CSS[cite: 10].</li>
+        <li><strong>¿El div ha muerto?</strong> No. <code>&lt;div&gt;</code> y <code>&lt;span&gt;</code> siguen siendo correctos para agrupar contenido sin significado especial[cite: 10].</li>
+        <li><strong>¿Cómo se lee un atributo data-* desde JS?</strong> Mediante la propiedad <code>dataset</code>[cite: 10]. Para <code>data-autor="Ana" data-fecha="2026"</code>, se accede con <code>elem.dataset.autor</code> y <code>elem.dataset.fecha</code>[cite: 10].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Separación de Responsabilidades</h3>
+      <p>
+        HTML se encarga de la estructura y semántica; CSS de la presentación y aspecto visual; JavaScript del comportamiento interactivo.
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>
