@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.4 Tipografías externas con @font-face</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.4 -->
+  <link rel="stylesheet" href="./css/leccion_2_4.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.4 Tipografías externas con @font-face</h2>
+    </header>
+
+    <section>
+      <p>La regla <code>@font-face</code> elimina la limitación de usar solo fuentes del sistema, permitiendo **descargar una tipografía junto con la página** e integrarla de forma nativa en la hoja de estilos[cite: 9].</p>
+    </section>
+
+    <!-- Declaración básica -->
+    <section>
+      <h3>Uso y sintaxis de @font-face</h3>
+      <p>Se declara el nombre con <code>font-family</code> y la ruta del archivo con <code>src: url()</code>[cite: 9]:</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Declaración de la fuente externa */
+@font-face {
+  font-family: 'MiFuente';
+  src: url('../fonts/mi-fuente.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Aplicación en un selector */
+.titulo-destacado {
+  font-family: 'MiFuente', sans-serif;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-fuente-sistema">Fuente del sistema (Fallback)</div>
+          <div class="demo-fuente-custom">Fuente Externa Cargada</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conceptos clave de optimización -->
+    <section>
+      <h3>Lo que hay que decidir al usarla</h3>
+      <ul>
+        <li><strong>Formato estándar (WOFF2):</strong> Formato comprimido diseñado para la web y compatible con navegadores modernos[cite: 9].</li>
+        <li><strong>Una declaración por variante:</strong> Negritas y cursivas de una misma familia requieren su propio bloque <code>@font-face</code> enlazado por <code>font-weight</code> y <code>font-style</code>[cite: 9].</li>
+        <li><strong>Estrategia de carga (<code>font-display</code>):</strong>
+          <ul>
+            <li><code>swap</code>: Muestra la fuente de reserva de inmediato y cambia al cargar la definitiva (recomendado)[cite: 9].</li>
+            <li><code>block</code>: Mantiene el texto invisible un breve periodo mientras descarga[cite: 9].</li>
+          </ul>
+        </li>
+        <li><strong>Alojamiento propio:</strong> Lo más profesional es alojar las fuentes directamente en tu proyecto[cite: 9].</li>
+        <li><strong>Fuentes Variables:</strong> Un único archivo que soporta cualquier rango de pesos (ej. <code>font-weight: 460</code>)[cite: 9].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Carga optimizada con font-display */
+@font-face {
+  font-family: 'RobotoCustom';
+  src: url('/fonts/roboto.woff2') format('woff2');
+  font-display: swap; /* Evita el texto invisible */
+}
+
+/* Uso de Fuente Variable */
+.texto-variable {
+  font-family: 'InterVariable', sans-serif;
+  font-weight: 550; /* Peso personalizado */
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-font-display">font-display: swap; (Texto visible siempre)</div>
+          <div class="demo-fuente-variable">Fuente Variable (Weight: 550)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Rendimiento y WOFF2</h3>
+      <p>
+        Cada archivo de fuente es una descarga adicional para el cliente[cite: 9]. Procura usar exclusivamente el formato <strong>WOFF2</strong> y limita la selección a 2 o 3 pesos máximo por familia tipográfica para evitar ralentizar la carga del portal[cite: 9].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

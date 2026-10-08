@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.2 Bordes redondeados, sombras y degradados</title>
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- CSS específico de la Lección 2.2 -->
+  <link rel="stylesheet" href="./css/leccion_2_2.css">
+
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.2 Bordes redondeados, sombras y degradados</h2>
+    </header>
+
+    <section>
+      <p>Antes de CSS3, lograr una esquina redondeada o una sombra requería trocear imágenes en editores externos[cite: 10]. Hoy la decoración es pura hoja de estilos: no pesa nada, es escalable y se modifica al instante[cite: 10].</p>
+    </section>
+
+    <!-- Bordes y esquinas -->
+    <section>
+      <h3>Bordes y esquinas (border-radius y box-sizing)</h3>
+      <ul>
+        <li><strong><code>border-radius</code>:</strong> Redondea las esquinas de la caja[cite: 10]. Un valor único (ej. <code>12px</code>) se aplica a las cuatro esquinas[cite: 10]; cuatro valores especifican individualmente en sentido horario empezando por la superior izquierda[cite: 10]; y <code>50%</code> convierte un elemento cuadrado en un círculo perfecto[cite: 10].</li>
+        <li><strong><code>box-sizing: border-box</code>:</strong> Hace que el ancho (<code>width</code>) y alto (<code>height</code>) declarados incluyan el relleno (<code>padding</code>) y el borde[cite: 10]. Evita que las cajas se desorganicen al añadir estilos[cite: 10].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Ejemplos de bordes y esquinas */
+.tarjeta {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 12px;
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+}
+
+.avatar-circulo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.caja-asimetrica {
+  border-radius: 15px 0px 15px 0px;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-tarjeta">.tarjeta</div>
+          <div class="demo-avatar-circulo">50%</div>
+          <div class="demo-caja-asimetrica">.caja-asimetrica</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sombras -->
+    <section>
+      <h3>Sombras (box-shadow, text-shadow y drop-shadow)</h3>
+      <ul>
+        <li><strong><code>box-shadow</code>:</strong> Proyecta sombras en la caja (orden: <code>desplazamiento horizontal</code>, <code>desplazamiento vertical</code>, <code>desenfoque</code>, <code>expansión</code> y <code>color</code>)[cite: 10].
+          <ul>
+            <li>Ejemplo: <code>box-shadow: 0 4px 12px rgba(0,0,0,0.25);</code>[cite: 10]</li>
+            <li>Con la palabra reservada <code>inset</code> la sombra se proyecta hacia el interior de la caja[cite: 10].</li>
+          </ul>
+        </li>
+        <li><strong><code>text-shadow</code>:</strong> Aplica sombra directamente sobre el texto[cite: 10].</li>
+        <li><strong><code>filter: drop-shadow()</code>:</strong> Proyecta la sombra siguiendo la silueta real del contenido o imagen recortada (PNG/SVG) en lugar del marco rectangular[cite: 10].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Ejemplos de sombras */
+.tarjeta-elevada {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.campo-hundido {
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.titulo-brillante {
+  text-shadow: 0 0 10px #3b82f6, 
+               0 0 20px #3b82f6;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-tarjeta-elevada">.tarjeta-elevada</div>
+          <div class="demo-campo-hundido">.campo-hundido (inset)</div>
+          <div class="demo-titulo-brillante">Glow Effect</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Degradados -->
+    <section>
+      <h3>Degradados (Gradients)</h3>
+      <p>Un degradado en CSS no es un color sólido, sino una imagen generada por el navegador[cite: 10]:</p>
+      <ul>
+        <li><strong><code>linear-gradient()</code>:</strong> Transición lineal en una dirección o ángulo (ej. <code>135deg</code>)[cite: 10].</li>
+        <li><strong><code>radial-gradient()</code>:</strong> Irradia desde un punto central hacia afuera[cite: 10].</li>
+        <li><strong><code>conic-gradient()</code>:</strong> Gira alrededor de un punto central (ideal para gráficos de queso o ruedas cromáticas)[cite: 10].</li>
+        <li><strong>Repeticiones:</strong> <code>repeating-linear-gradient()</code> y <code>repeating-radial-gradient()</code> permiten crear patrones repetitivos o bandas[cite: 10].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Ejemplos de degradados */
+.fondo-lineal {
+  background: linear-gradient(135deg, #3b82f6, #1e1b4b);
+}
+
+.fondo-radial {
+  background: radial-gradient(circle, #3b82f6, #0f172a);
+}
+
+.patron-rayas {
+  background: repeating-linear-gradient(
+    45deg, #1e293b, #1e293b 10px,
+    #3b82f6 10px, #3b82f6 20px
+  );
+}</code></pre>
+
+        <div class="preview-box" style="gap: 0.8rem;">
+          <div class="demo-fondo-lineal"></div>
+          <div class="demo-fondo-radial"></div>
+          <div class="demo-patron-rayas"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparencia y Backdrop-filter -->
+    <section>
+      <h3>Transparencia y Canal Alfa</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Forma</th>
+            <th style="padding: 0.8rem;">Qué afecta</th>
+            <th style="padding: 0.8rem;">Cuándo usarla</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>opacity: .5</code></td>
+            <td style="padding: 0.8rem;">Al elemento entero, <strong>hijos incluidos</strong>[cite: 10].</td>
+            <td style="padding: 0.8rem;">Atenuar un bloque completo (ej. estado de carga)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>rgba(0,0,0,.5)</code> / <code>hsla()</code></td>
+            <td style="padding: 0.8rem;">Solo al color en el que se usa[cite: 10].</td>
+            <td style="padding: 0.8rem;">Fondo semitransparente manteniendo el texto 100% opaco[cite: 10].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;">Notación <code>#RRGGBBAA</code></td>
+            <td style="padding: 0.8rem;">Solo al color, igual que <code>rgba</code>[cite: 10].</td>
+            <td style="padding: 0.8rem;">Si prefieres notación hexadecimal con canal alfa[cite: 10].</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Efecto Glassmorphism */
+.tarjeta-cristal {
+  background-color: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-container-glass">
+            <div class="demo-tarjeta-cristal">Glassmorphism</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Opacity vs Canal Alfa</h3>
+      <p>
+        La confusión entre ambas formas es habitual[cite: 10]. Usar <code>opacity</code> atenúa el elemento y todo su contenido interno (el texto también se vuelve transparente)[cite: 10]. Cuando quieras un fondo translúcido pero con texto nítido, debes aplicar transparencia directamente al color mediante <strong>canal alfa</strong> (<code>rgba</code> o <code>hsla</code>)[cite: 10].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* Modulo_02/css/leccion_2_4.css */
+
+/* Simulación de regla @font-face */
+@font-face {
+  font-family: 'MiFuentePersonalizada';
+  src: url('/assets/fonts/mi-fuente.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Demostraciones de fuentes */
+.demo-fuente-sistema {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.demo-fuente-custom {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.demo-font-display {
+  padding: 8px 12px;
+  background-color: #0f172a;
+  border-left: 3px solid #3b82f6;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.demo-fuente-variable {
+  font-family: 'Inter', sans-serif;
+  font-weight: 550; /* Peso personalizado en fuente variable */
+  font-size: 1rem;
+  color: #a855f7;
+}

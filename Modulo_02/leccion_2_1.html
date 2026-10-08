@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.1 Selectores avanzados, pseudo-clases y pseudo-elementos</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.1 Selectores avanzados, pseudo-clases y pseudo-elementos</h2>
+    </header>
+
+    <section>
+      <p>Un selector indica a qué elementos se aplican las reglas de estilo[cite: 10]. CSS3 incorporó herramientas mucho más precisas: combinadores, selectores de atributo, pseudo-clases y pseudo-elementos[cite: 10]. Estos evitan llenar el HTML de clases innecesarias[cite: 10].</p>
+    </section>
+
+    <!-- Combinadores -->
+    <section>
+      <h3>Combinadores: Selección por relación entre elementos</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Selector</th>
+            <th style="padding: 0.8rem;">Qué selecciona</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>div p</code></td>
+            <td style="padding: 0.8rem;">Todos los párrafos que están dentro de un <code>div</code>, a cualquier profundidad[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>ul &gt; li</code></td>
+            <td style="padding: 0.8rem;">Solo los <code>li</code> que son hijos inmediatos de la lista[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>h2 + p</code></td>
+            <td style="padding: 0.8rem;">El párrafo inmediatamente posterior a un <code>h2</code>[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>h2 ~ p</code></td>
+            <td style="padding: 0.8rem;">Todos los párrafos posteriores que comparten padre con el <code>h2</code>[cite: 10].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>:has()</code></td>
+            <td style="padding: 0.8rem;">Selecciona hacia atrás/arriba (ej. <code>article:has(img)</code> selecciona artículos que contengan una imagen)[cite: 10].</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Selectores de atributo -->
+    <section>
+      <h3>Selectores de atributo</h3>
+      <ul>
+        <li><code>[disabled]</code>: Coincide cuando el atributo existe en la etiqueta[cite: 10].</li>
+        <li><code>[type="email"]</code>: Coincide exactamente con ese valor[cite: 10].</li>
+        <li><code>[href^="https"]</code>: El valor empieza por ese texto (ideal para enlaces seguros)[cite: 10].</li>
+        <li><code>[href$=".pdf"]</code>: El valor termina por ese texto (para poner iconos de documento)[cite: 10].</li>
+        <li><code>[class*="col-"]</code>: Contiene ese texto en cualquier posición[cite: 10].</li>
+        <li><code>[lang|="es"]</code>: Es ese valor o empieza por él seguido de un guión (<code>es-ES</code>)[cite: 10].</li>
+      </ul>
+    </section>
+
+    <!-- Pseudo-clases y Pseudo-elementos -->
+    <section>
+      <h3>Pseudo-clases y Pseudo-elementos</h3>
+      <ul>
+        <li><strong>Pseudo-clases (Estado o Posición):</strong> <code>:hover</code>, <code>:focus</code>, <code>:checked</code>, <code>:disabled</code>, <code>:first-child</code>, <code>:nth-child(n)</code>, <code>:not()</code>, <code>:is()</code>, <code>:where()</code> y <code>:root</code>[cite: 10].</li>
+        <li><strong>Pseudo-elementos (Partes de un elemento):</strong> Se escriben con <code>::</code> (ej. <code>::before</code>, <code>::after</code>, <code>::placeholder</code>, <code>::selection</code>)[cite: 10].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Especificidad y Lectura</h3>
+      <p>
+        La <strong>especificidad</strong> determina qué estilo gana cuando dos reglas compiten[cite: 10]. Además, ten en cuenta que el navegador lee los selectores de CSS de <strong>derecha a izquierda</strong> para evaluar el árbol DOM de forma eficiente[cite: 10].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

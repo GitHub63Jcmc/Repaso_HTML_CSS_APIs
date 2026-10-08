@@ -1,0 +1,117 @@
+/* Modulo_02/css/leccion_2_2.css */
+
+/* 1. Bordes y esquinas */
+    .demo-tarjeta {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 200px;
+      padding: 12px;
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .demo-avatar-circulo {
+      width: 70px;
+      height: 70px;
+      background-color: #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .demo-caja-asimetrica {
+      width: 100%;
+      max-width: 200px;
+      padding: 12px;
+      background-color: #1e293b;
+      border: 2px solid #ef4444;
+      border-radius: 15px 0px 15px 0px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* 2. Sombras */
+    .demo-tarjeta-elevada {
+      width: 100%;
+      max-width: 200px;
+      padding: 12px;
+      background-color: #1e293b;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .demo-campo-hundido {
+      width: 100%;
+      max-width: 200px;
+      padding: 10px;
+      background-color: #0f172a;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+      border: 1px solid #334155;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .demo-titulo-brillante {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+    }
+
+    /* 3. Degradados */
+    .demo-fondo-lineal {
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #3b82f6, #1e1b4b);
+    }
+
+    .demo-fondo-radial {
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      background: radial-gradient(circle, #3b82f6, #0f172a);
+    }
+
+    .demo-patron-rayas {
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      background: repeating-linear-gradient(
+        45deg,
+        #1e293b,
+        #1e293b 10px,
+        #3b82f6 10px,
+        #3b82f6 20px
+      );
+    }
+
+    /* 4. Transparencias */
+    .demo-container-glass {
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(45deg, #ef4444, #3b82f6);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-tarjeta-cristal {
+      background-color: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }

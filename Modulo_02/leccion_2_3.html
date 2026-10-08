@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.3 Efectos de texto</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.3 -->
+  <link rel="stylesheet" href="./css/leccion_2_3.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.3 Efectos de texto</h2>
+    </header>
+
+    <section>
+      <p>El texto es el contenido principal de la web[cite: 8]. CSS3 amplió las posibilidades tipográficas permitiendo sombras, control de desbordamiento sin romper maquetaciones y efectos decorativos avanzados[cite: 8].</p>
+    </section>
+
+    <!-- Sombras de texto -->
+    <section>
+      <h3>Sombra de texto (text-shadow)</h3>
+      <p>Funciona igual que <code>box-shadow</code> (desplazamiento H, desplazamiento V, desenfoque y color) y permite encadenar varias sombras separadas por comas[cite: 8].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Ejemplos de text-shadow */
+.sombra-simple {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.sombra-glow {
+  color: #3b82f6;
+  text-shadow: 0 0 8px #3b82f6, 
+               0 0 15px #1d4ed8;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-sombra-simple">Texto con Sombra</div>
+          <div class="demo-sombra-glow">Efecto Neón</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cuando el texto no cabe -->
+    <section>
+      <h3>Cuando el texto no cabe</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Propiedad</th>
+            <th style="padding: 0.8rem;">Qué hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>text-overflow: ellipsis</code></td>
+            <td style="padding: 0.8rem;">Sustituye por puntos suspensivos (<code>...</code>) el texto que no cabe[cite: 8].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>overflow-wrap: break-word</code></td>
+            <td style="padding: 0.8rem;">Permite partir una palabra muy larga para evitar que desborde la caja[cite: 8].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>word-break: break-all</code></td>
+            <td style="padding: 0.8rem;">Control agresivo para romper palabras en cualquier carácter[cite: 8].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>hyphens: auto</code></td>
+            <td style="padding: 0.8rem;">Divide palabras largas usando guiones según el idioma (<code>lang="es"</code>)[cite: 8].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>white-space: nowrap</code></td>
+            <td style="padding: 0.8rem;">Impide el salto de línea automático obligando al texto a estar en una fila[cite: 8].</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Solución limpia con Puntos Suspensivos */
+.titulo-recortado {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Partir palabras largas */
+.texto-seguro {
+  overflow-wrap: break-word;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-caja-ellipsis">Este es un título excesivamente largo que no cabe</div>
+          <div class="demo-caja-break">SupercalifragilisticoespialidosoTextoSinEspacios</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Otros ajustes tipográficos -->
+    <section>
+      <h3>Otros ajustes tipográficos y Contornos</h3>
+      <ul>
+        <li><code>text-transform</code>: Controla mayúsculas y minúsculas (<code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>)[cite: 8].</li>
+        <li><code>letter-spacing</code>: Ajusta el espaciado entre letras[cite: 8].</li>
+        <li><code>line-height</code>: Controla la altura de línea (interlineado)[cite: 8].</li>
+        <li><code>-webkit-text-stroke</code>: Dibuja un contorno alrededor de las letras[cite: 8].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Espaciado y Contorno de texto */
+.texto-espaciado {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.texto-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #38bdf8;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-texto-espaciado">Espaciado</div>
+          <div class="demo-texto-stroke">CONTORNO</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Trilogía para puntos suspensivos</h3>
+      <p>
+        Para que <code>text-overflow: ellipsis</code> funcione correctamente, siempre debes aplicar estas 3 propiedades juntas[cite: 8]:
+      </p>
+      <code style="display: block; margin-top: 0.5rem; color: #38bdf8;">
+        white-space: nowrap;<br>
+        overflow: hidden;<br>
+        text-overflow: ellipsis;
+      </code>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>
