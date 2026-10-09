@@ -1,0 +1,33 @@
+/* Modulo_02/css/leccion_2_10.css */
+
+/* Contenedor periodístico de ejemplo */
+.demo-columnas-texto {
+  columns: 3 180px; /* Máximo 3 columnas, mínimo ~180px */
+  column-gap: 1.5rem;
+  column-rule: 1px solid #334155;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.demo-titulo-span {
+  column-span: all; /* Hace que el título cruce todas las columnas */
+  color: #38bdf8;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  border-bottom: 2px solid #38bdf8;
+  padding-bottom: 0.4rem;
+}
+
+/* Evitar división de elementos en columnas */
+.demo-bloque-tarjeta {
+  background-color: #0f172a;
+  border: 1px solid #3b82f6;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  break-inside: avoid; /* Evita que el bloque se corte entre 2 columnas */
+}

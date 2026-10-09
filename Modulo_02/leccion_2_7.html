@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.7 Animaciones con @keyframes</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.7 -->
+  <link rel="stylesheet" href="./css/leccion_2_7.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.7 Animaciones con @keyframes</h2>
+    </header>
+
+    <section>
+      <p>Las **animaciones** en CSS3 van más allá de las transiciones: no necesitan un evento que las active y pueden encadenar múltiples fases o ejecutarse en bucle infinito[cite: 10]. Se componen de dos pasos: la definición de reglas con <code>@keyframes</code> y su aplicación mediante <code>animation</code>[cite: 10].</p>
+    </section>
+
+    <!-- Subpropiedades principales -->
+    <section>
+      <h3>Propiedades de Animación</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Subpropiedad</th>
+            <th style="padding: 0.8rem;">Qué controla</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>animation-name</code></td>
+            <td style="padding: 0.8rem;">Nombre de la regla <code>@keyframes</code> declarada[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>animation-duration</code></td>
+            <td style="padding: 0.8rem;">Tiempo del ciclo completo (ej. <code>2s</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>animation-timing-function</code></td>
+            <td style="padding: 0.8rem;">Velocidad del movimiento (<code>linear</code>, <code>ease</code>, <code>steps()</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>animation-iteration-count</code></td>
+            <td style="padding: 0.8rem;">Número de veces que se repite (<code>1</code>, <code>5</code>, <code>infinite</code>)[cite: 10].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>animation-fill-mode</code></td>
+            <td style="padding: 0.8rem;">Estado final tras terminar (<code>forwards</code> mantiene el último fotograma)[cite: 10].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>animation-play-state</code></td>
+            <td style="padding: 0.8rem;">Pausa o reanuda la animación (<code>running</code>, <code>paused</code>)[cite: 10].</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* 1. Definición de fotogramas */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* 2. Aplicación abreviada */
+.spinner {
+  animation: girar 1s linear infinite;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-loader"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fases complejas y Pausa -->
+    <section>
+      <h3>Fases con porcentajes y control de estado</h3>
+      <p>Usar porcentajes permite definir estados intermedios (<code>0%</code>, <code>50%</code>, <code>100%</code>)[cite: 10]. Además, con <code>animation-play-state: paused</code> podemos congelar el movimiento al interactuar con el elemento[cite: 10].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Animación multinivel */
+@keyframes pulso {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.tarjeta-pulso {
+  animation: pulso 2s infinite;
+}
+
+/* Pausa al hacer Hover */
+.elemento-pausable:hover {
+  animation-play-state: paused;
+}</code></pre>
+
+        <div class="preview-box" style="gap: 1rem;">
+          <div class="demo-pulse-box">Efecto Pulso</div>
+          <div class="demo-pausable-box">Hover = Pausa</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section>
+      <h3>Preguntas Frecuentes</h3>
+      <ul>
+        <li><strong>¿Transición o Animación?</strong> Usa <em>transición</em> para cambios sencillos A $\rightarrow$ B disparados por el usuario[cite: 10]. Usa <em>animación</em> si necesitas bucles, inicio automático o múltiples estados intermedios[cite: 10].</li>
+        <li><strong>¿Hasta dónde llega CSS frente a JS?</strong> CSS gestiona de forma eficiente la parte declarativa[cite: 10]. JavaScript se reserva para sincronizaciones según la interacción del usuario o eventos del DOM[cite: 10].</li>
+        <li><strong>Degradación elegante:</strong> Si un navegador antiguo no entiende una regla de animación, simplemente la ignora y muestra la interfaz estática sin fallar[cite: 10].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Rendimiento a 60 FPS</h3>
+      <p>
+        Al igual que con las transiciones, prioriza animar únicamente <strong><code>transform</code></strong> y <strong><code>opacity</code></strong>[cite: 10]. El motor del navegador procesará estas animaciones mediante la GPU, garantizando fluidez sin tirones[cite: 10].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

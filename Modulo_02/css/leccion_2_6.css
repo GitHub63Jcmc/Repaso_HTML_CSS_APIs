@@ -1,0 +1,76 @@
+/* Modulo_02/css/leccion_2_6.css */
+
+/* Base para botones/tarjetas de demostración */
+.demo-btn-transition {
+  padding: 10px 20px;
+  background-color: #1e293b;
+  color: #38bdf8;
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
+  /* La transición SE DECLARA EN EL ESTADO NORMAL para que funcione al entrar y salir */
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.demo-btn-transition:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-3px);
+}
+
+/* Demostración de Timing Functions */
+.demo-timing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.demo-timing-box {
+  width: 70px;
+  height: 32px;
+  background-color: #3b82f6;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.demo-timing-container:hover .box-ease {
+  transform: translateX(120px);
+  transition: transform 0.8s ease;
+}
+
+.demo-timing-container:hover .box-linear {
+  transform: translateX(120px);
+  transition: transform 0.8s linear;
+}
+
+.demo-timing-container:hover .box-cubic {
+  transform: translateX(120px);
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Transición fluida con opacidad */
+.demo-fade-card {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.4s ease, border-color 0.4s ease;
+  cursor: pointer;
+}
+
+.demo-fade-card:hover {
+  opacity: 1;
+  border-color: #10b981;
+}

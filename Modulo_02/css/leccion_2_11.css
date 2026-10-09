@@ -1,0 +1,57 @@
+/* Modulo_02/css/leccion_2_11.css */
+
+/* Contenedor simulador de layout responsive */
+.demo-responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-box-resp {
+  background-color: #1e293b;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Indicador de breakpoint activo */
+.demo-breakpoint-tag {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-align: center;
+  background-color: #ef4444;
+  color: #fff;
+}
+
+/* Media Queries Mobile-First */
+@media (min-width: 600px) {
+  .demo-responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .demo-breakpoint-tag {
+    background-color: #f59e0b;
+  }
+}
+
+@media (min-width: 900px) {
+  .demo-responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .demo-breakpoint-tag {
+    background-color: #10b981;
+  }
+}

@@ -36,6 +36,13 @@ class MainHeader extends HTMLElement {
               <a href="/Modulo_02/leccion_2_3.html">2.3 Efectos de texto</a>
               <a href="/Modulo_02/leccion_2_4.html">2.4 Tipografías externas con @font-face</a>
               <a href="/Modulo_02/leccion_2_5.html">2.5 Transformaciones</a>
+              <a href="/Modulo_02/leccion_2_6.html">2.6 Transiciones</a>
+              <a href="/Modulo_02/leccion_2_7.html">2.7 Animaciones (@keyframes)</a>
+              <a href="/Modulo_02/leccion_2_8.html">2.8 Flexbox</a>
+              <a href="/Modulo_02/leccion_2_9.html">2.9 Grid Layout</a>
+              <a href="/Modulo_02/leccion_2_10.html">2.10 Texto en columnas</a>
+              <a href="/Modulo_02/leccion_2_11.html">2.11 Diseño Adaptable</a>
+              <a href="/Modulo_02/resumen.html">2.12 Resumen del Módulo 2</a>
             </div>
           </div>
 

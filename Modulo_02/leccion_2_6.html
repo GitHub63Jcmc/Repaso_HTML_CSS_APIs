@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.6 Transiciones</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.6 -->
+  <link rel="stylesheet" href="./css/leccion_2_6.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.6 Transiciones</h2>
+    </header>
+
+    <section>
+      <p>Una **transición** anima el paso entre dos estados de forma gradual y fluida[cite: 9]. Permite cambiar propiedades sin saltos bruscos al interactuar con el usuario (ej. al pasar el ratón o activar una clase)[cite: 9].</p>
+    </section>
+
+    <!-- Subpropiedades básicas -->
+    <section>
+      <h3>Subpropiedades y Abreviatura</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Subpropiedad</th>
+            <th style="padding: 0.8rem;">Qué controla</th>
+            <th style="padding: 0.8rem;">Valores habituales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>transition-property</code></td>
+            <td style="padding: 0.8rem;">Propiedades que se van a animar[cite: 9].</td>
+            <td style="padding: 0.8rem;"><code>all</code>, <code>transform</code>, <code>background-color</code>[cite: 9]</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>transition-duration</code></td>
+            <td style="padding: 0.8rem;">Duración del cambio[cite: 9].</td>
+            <td style="padding: 0.8rem;"><code>.3s</code>, <code>400ms</code>[cite: 9]</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>transition-timing-function</code></td>
+            <td style="padding: 0.8rem;">Curva de velocidad de la animación[cite: 9].</td>
+            <td style="padding: 0.8rem;"><code>ease</code>, <code>linear</code>, <code>cubic-bezier()</code>[cite: 9]</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>transition-delay</code></td>
+            <td style="padding: 0.8rem;">Tiempo de espera antes de comenzar[cite: 9].</td>
+            <td style="padding: 0.8rem;"><code>0s</code>, <code>.1s</code>[cite: 9]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Declaración correcta en el estado NORMAL */
+.boton {
+  background-color: #1e293b;
+  color: #38bdf8;
+  /* Abreviatura: propiedad tiempo curva */
+  transition: background-color 0.3s ease, 
+              transform 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-3px);
+}</code></pre>
+
+        <div class="preview-box">
+          <button class="demo-btn-transition">Pasa el ratón aquí</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curvas de velocidad (Timing functions) -->
+    <section>
+      <h3>Curvas de Velocidad (Timing Functions)</h3>
+      <p>Determinan cómo acelera o desacelera la animación durante su recorrido (haz hover sobre el contenedor para probarlas)[cite: 9]:</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Diferentes funciones de tiempo */
+.caja-ease {
+  transition: transform 0.8s ease;
+}
+.caja-linear {
+  transition: transform 0.8s linear;
+}
+.caja-bounce {
+  transition: transform 0.8s 
+    cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-timing-container">
+            <div class="demo-timing-box box-ease">ease</div>
+            <div class="demo-timing-box box-linear">linear</div>
+            <div class="demo-timing-box box-cubic">rebound</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué animar por rendimiento -->
+    <section>
+      <h3>Rendimiento y Propiedades Animables</h3>
+      <ul>
+        <li><strong>Alto rendimiento (60fps):</strong> Animaciones procesadas por la tarjeta gráfica usando <code>transform</code> (para desplazar/escalar) y <code>opacity</code> (para visibilidad)[cite: 9].</li>
+        <li><strong>Evitar animar:</strong> Propiedades que fuerzan al navegador a recalculaciones completas de maquetación como <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code> o <code>margin</code>[cite: 9].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Transición optimizada de visibilidad */
+.tarjeta-fade {
+  opacity: 0.5;
+  transition: opacity 0.4s ease, 
+              border-color 0.4s ease;
+}
+
+.tarjeta-fade:hover {
+  opacity: 1;
+  border-color: #10b981;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-fade-card">
+            Hover para Opacidad
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Dónde declarar la transición</h3>
+      <p>
+        La regla <code>transition</code> debe ubicarse siempre en la regla principal del elemento (el estado base)[cite: 9]. Si se escribe dentro de <code>:hover</code>, la animación solo funcionará al entrar con el ratón, pero el efecto se cortará abruptamente al retirarlo[cite: 9].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

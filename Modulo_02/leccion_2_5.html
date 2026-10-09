@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.5 Transformaciones</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.5 -->
+  <link rel="stylesheet" href="./css/leccion_2_5.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.5 Transformaciones</h2>
+    </header>
+
+    <section>
+      <p>La propiedad <code>transform</code> modifica la geometría de un elemento <strong>sin alterar el flujo del documento</strong>[cite: 8]. El elemento se mueve, gira o escala, pero el espacio original que ocupaba sigue reservado sin afectar a los elementos contiguos[cite: 8].</p>
+    </section>
+
+    <!-- Transformaciones 2D -->
+    <section>
+      <h3>Transformaciones 2D Básicas</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Función</th>
+            <th style="padding: 0.8rem;">Qué hace</th>
+            <th style="padding: 0.8rem;">Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>translate(x, y)</code></td>
+            <td style="padding: 0.8rem;">Desplaza el elemento en ejes X e Y[cite: 8].</td>
+            <td style="padding: 0.8rem;"><code>translate(15px, -10px)</code>[cite: 8]</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>rotate(deg)</code></td>
+            <td style="padding: 0.8rem;">Gira el elemento los grados indicados[cite: 8].</td>
+            <td style="padding: 0.8rem;"><code>rotate(15deg)</code>[cite: 8]</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>scale(factor)</code></td>
+            <td style="padding: 0.8rem;">Escala/agrandar o encoge el elemento[cite: 8].</td>
+            <td style="padding: 0.8rem;"><code>scale(1.15)</code>[cite: 8]</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>skew(deg)</code></td>
+            <td style="padding: 0.8rem;">Inclina la figura sobre sus ejes[cite: 8].</td>
+            <td style="padding: 0.8rem;"><code>skewX(-12deg)</code>[cite: 8]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Ejemplos de transformaciones 2D */
+          
+  .caja-translate { 
+    transform: translate(15px, -10px); 
+  }
+  .caja-rotate { 
+    transform: rotate(15deg); 
+  }
+  .caja-scale  { 
+    transform: scale(1.15); 
+  }
+  .caja-skew   { 
+    transform: skewX(-12deg); 
+  }</code></pre>
+
+        <div class="preview-box" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="demo-box demo-translate">translate</div>
+          <div class="demo-box demo-rotate">rotate</div>
+          <div class="demo-box demo-scale">scale</div>
+          <div class="demo-box demo-skew">skew</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Punto de origen y orden -->
+    <section>
+      <h3>El orden importa y transform-origin</h3>
+      <p>Al encadenar transformaciones (ej. <code>transform: translate(20px) rotate(45deg);</code>), el orden modifica el resultado visual final[cite: 8]. Además, con <code>transform-origin</code> puedes cambiar el punto de anclaje del elemento (por defecto en el centro)[cite: 8].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Anclaje en la esquina superior izquierda */
+        .puerta-giratoria {
+          transform-origin: top left;
+          transform: rotate(20deg);
+        }</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-box demo-origin">Origin Top Left</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- La tercera dimensión -->
+    <section>
+      <h3>Transformaciones 3D</h3>
+      <ul>
+        <li><code>perspective</code>: Otorga profundidad 3D al contenedor padre[cite: 8].</li>
+        <li><code>transform-style: preserve-3d</code>: Mantiene la perspectiva 3D en los hijos[cite: 8].</li>
+        <li><code>backface-visibility: hidden</code>: Oculta la parte posterior del elemento al girarlo[cite: 8].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Efecto Flip Card 3D */
+        .contenedor-padre {
+          perspective: 600px;
+        }
+        .tarjeta-3d {
+          transform-style: preserve-3d;
+          transition: transform 0.6s;
+        }
+        .tarjeta-3d:hover {
+          transform: rotateY(180deg);
+        }
+        .cara {
+          backface-visibility: hidden;
+        }</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-card-container">
+            <div class="demo-card-3d">
+              <div class="demo-face demo-face-front">Hover me</div>
+              <div class="demo-face demo-face-back">Reverso 3D</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Animación fluida</h3>
+      <p>
+        Por sí sola, la propiedad <code>transform</code> es instantánea[cite: 8]. Para ver un movimiento continuo o animación fluida, se debe combinar con la propiedad <code>transition</code> o animaciones con <code>@keyframes</code>[cite: 8].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

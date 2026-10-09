@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.9 Retículas: Grid Layout</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.9 -->
+  <link rel="stylesheet" href="./css/leccion_2_9.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.9 Retículas: Grid Layout</h2>
+    </header>
+
+    <section>
+      <p><strong>CSS Grid Layout</strong> es un sistema de maquetación bidimensional (filas y columnas)[cite: 11]. Mientras que Flexbox organiza elementos principalmente en una sola dirección, Grid impone una estructura sobre el contenedor donde posicionar los elementos[cite: 11].</p>
+    </section>
+
+    <!-- Definir la retícula -->
+    <section>
+      <h3>Definir Columnas, Unidades `fr` y Span</h3>
+      <p>La unidad de fracción <code>fr</code> representa porciones del espacio libre disponible[cite: 11]. Además, con <code>grid-column: span X</code> un elemento puede ocupar varias columnas[cite: 11].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Columnas proporcionales y extensión */
+.contenedor-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+
+.item-ancho {
+  grid-column: span 2; /* Ocupa 2 columnas */
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-grid-container demo-grid-cols">
+            <div class="demo-grid-item">1fr</div>
+            <div class="demo-grid-item demo-span-2">2fr (span 2)</div>
+            <div class="demo-grid-item">1fr</div>
+            <div class="demo-grid-item">1fr</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive automático -->
+    <section>
+      <h3>Grid Adaptable sin Media Queries (`auto-fit` y `minmax`)</h3>
+      <p>Combinando <code>repeat(auto-fit, minmax(min, max))</code> la retícula se reorganiza automáticamente al cambiar el ancho del contenedor sin necesidad de escribir media queries[cite: 11].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Galería adaptable automática */
+.grid-adaptable {
+  display: grid;
+  grid-template-columns: 
+    repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-grid-container demo-grid-autofit">
+            <div class="demo-grid-item">Card 1</div>
+            <div class="demo-grid-item">Card 2</div>
+            <div class="demo-grid-item">Card 3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Áreas con Nombre -->
+    <section>
+      <h3>Maquetación por Áreas (`grid-template-areas`)</h3>
+      <p>Permite dibujar la estructura visualmente asignando nombres a las zonas del layout[cite: 11].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Definición de áreas en el contenedor */
+.layout-app {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 1fr 2fr;
+  gap: 8px;
+}
+
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-grid-container demo-grid-areas">
+            <div class="demo-grid-item demo-area-header">Header</div>
+            <div class="demo-grid-item demo-area-sidebar">Sidebar</div>
+            <div class="demo-grid-item demo-area-main">Main Content</div>
+            <div class="demo-grid-item demo-area-footer">Footer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: ¿Grid o Flexbox?</h3>
+      <p>
+        Usa <strong>Grid</strong> para la estructura macro o global de la página (cabecera, barra lateral, cuerpo principal, pie)[cite: 11]. Usa <strong>Flexbox</strong> para alinear los componentes dentro de cada una de esas zonas (botones, listas, menús)[cite: 11].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

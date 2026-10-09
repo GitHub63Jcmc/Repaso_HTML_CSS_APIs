@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.10 Texto en columnas</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.10 -->
+  <link rel="stylesheet" href="./css/leccion_2_10.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.10 Texto en columnas</h2>
+    </header>
+
+    <section>
+      <p>CSS3 incorporó un mecanismo específico para maquetar **texto corrido en columnas estilo periódico**[cite: 11]. El contenido fluye de manera automática desde el final de una columna hacia la parte superior de la siguiente[cite: 11].</p>
+    </section>
+
+    <!-- Propiedades principales -->
+    <section>
+      <h3>Propiedades del diseño en columnas</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Propiedad</th>
+            <th style="padding: 0.8rem;">Qué hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>column-count</code></td>
+            <td style="padding: 0.8rem;">Número exacto de columnas[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>column-width</code></td>
+            <td style="padding: 0.8rem;">Ancho mínimo orientativo de cada columna[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>columns</code></td>
+            <td style="padding: 0.8rem;">Abreviatura (ej. <code>columns: 3 200px</code>)[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>column-gap</code></td>
+            <td style="padding: 0.8rem;">Separación horizontal entre columnas[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>column-rule</code></td>
+            <td style="padding: 0.8rem;">Línea divisoria vertical entre columnas[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>column-span: all</code></td>
+            <td style="padding: 0.8rem;">Hace que un título o elemento cruce todas las columnas[cite: 11].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>break-inside: avoid</code></td>
+            <td style="padding: 0.8rem;">Evita que un bloque se parta por la mitad al cambiar de columna[cite: 11].</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Layout periodístico multicolumna */
+.articulo-periodico {
+  columns: 3 180px;
+  column-gap: 1.5rem;
+  column-rule: 1px solid #334155;
+}
+
+.titular-principal {
+  column-span: all;
+}</code></pre>
+
+        <div class="preview-box" style="display: block;">
+          <div class="demo-columnas-texto">
+            <h4 class="demo-titulo-span">Titular Expandido</h4>
+            <p>El diseño de texto en columnas permite adaptar grandes bloques de lectura de forma ordenada[cite: 11]. Cuando el texto llega al final de la caja, salta automáticamente al encabezado de la siguiente columna[cite: 11].</p>
+            <p>Es perfecto para editoriales, artículos largos o listas extensas[cite: 11]. Mantiene las líneas de texto equilibradas[cite: 11].</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Protección de bloques con break-inside -->
+    <section>
+      <h3>Evitar la ruptura de bloques (`break-inside`)</h3>
+      <p>Cuando incluimos tarjetas, imágenes o citas dentro de un flujo multi-columna, es fundamental usar <code>break-inside: avoid</code> para que no queden divididas de forma antiestética entre dos columnas[cite: 11].</p>
+
+      <div class="code-preview-container">
+        <pre><code>/* Evitar cortes entre columnas */
+.tarjeta-destacada {
+  break-inside: avoid;
+  background-color: #0f172a;
+  border: 1px solid #3b82f6;
+  padding: 10px;
+}</code></pre>
+
+        <div class="preview-box" style="display: block;">
+          <div class="demo-columnas-texto">
+            <div class="demo-bloque-tarjeta">
+              <strong>Bloque Integro:</strong> Esta tarjeta nunca se dividirá en dos columnas distintas gracias a break-inside[cite: 11].
+            </div>
+            <p>El resto del texto fluido continuará repartiéndose por el contenedor sin interrumpir la integridad del elemento[cite: 11].</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Uso adecuado de columnas</h3>
+      <p>
+        No utilices esta propiedad para maquetar la estructura de la web (cabecera, sidebar, contenido)[cite: 11]. Las columnas CSS están diseñadas para <strong>texto corrido, artículos largos o listados</strong>[cite: 11]. Para estructuras completas de página, utiliza siempre Flexbox o Grid Layout[cite: 11].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

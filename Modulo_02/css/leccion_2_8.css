@@ -1,0 +1,59 @@
+/* Modulo_02/css/leccion_2_8.css */
+
+/* Contenedor base para demos */
+.demo-flex-container {
+  display: flex;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-flex-item {
+  background-color: #1e293b;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Demo Justify Content */
+.demo-justify-between {
+  justify-content: space-between;
+}
+
+/* Demo Align Items & Gap */
+.demo-align-center {
+  align-items: center;
+  gap: 12px;
+  min-height: 90px;
+}
+
+.demo-item-tall {
+  padding: 20px 14px;
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* Demo Flex-Grow */
+.demo-grow-1 {
+  flex-grow: 1;
+}
+
+.demo-grow-2 {
+  flex-grow: 2;
+  background-color: #0284c7;
+  color: #fff;
+}
+
+/* Demo Align-Self */
+.demo-self-end {
+  align-self: flex-end;
+  background-color: #ef4444;
+  color: #fff;
+}

@@ -1,0 +1,54 @@
+/* Modulo_02/css/leccion_2_9.css */
+
+/* Base para los contenedores Grid de demostración */
+.demo-grid-container {
+  display: grid;
+  gap: 10px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-grid-item {
+  background-color: #1e293b;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Demo Grid Básica con fr y span */
+.demo-grid-cols {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.demo-span-2 {
+  grid-column: span 2;
+  background-color: #0284c7;
+  color: #fff;
+}
+
+/* Demo Responsive Autogrid (auto-fit + minmax) */
+.demo-grid-autofit {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+/* Demo Grid Template Areas */
+.demo-grid-areas {
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 1fr 2fr;
+}
+
+.demo-area-header  { grid-area: header;  background-color: #3b82f6; color: #fff; }
+.demo-area-sidebar { grid-area: sidebar; background-color: #1e293b; }
+.demo-area-main    { grid-area: main;    background-color: #0284c7; color: #fff; }
+.demo-area-footer  { grid-area: footer;  background-color: #0f172a; border-color: #475569; }

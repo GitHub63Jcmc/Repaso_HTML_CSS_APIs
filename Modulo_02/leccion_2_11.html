@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.11 Consultas de medios y diseño adaptable</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.11 -->
+  <link rel="stylesheet" href="./css/leccion_2_11.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.11 Consultas de medios y diseño adaptable</h2>
+    </header>
+
+    <section>
+      <p>Las **consultas de medios** (<em>media queries</em>) permiten aplicar reglas condicionales en función de las características del dispositivo (ancho de ventana, orientación o preferencias del usuario)[cite: 11]. Son la pieza clave para lograr un **diseño adaptable (Responsive Web Design)**[cite: 11].</p>
+    </section>
+
+    <!-- Condiciones que se pueden consultar -->
+    <section>
+      <h3>¿Qué se puede preguntar en una Media Query?</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Condición</th>
+            <th style="padding: 0.8rem;">Qué comprueba</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>min-width / max-width</code></td>
+            <td style="padding: 0.8rem;">Ancho de la ventana del navegador[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>orientation</code></td>
+            <td style="padding: 0.8rem;">Orientación de la pantalla (<code>portrait</code> / <code>landscape</code>)[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>prefers-color-scheme</code></td>
+            <td style="padding: 0.8rem;">Preferencia de tema del sistema (<code>dark</code> / <code>light</code>)[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>prefers-reduced-motion</code></td>
+            <td style="padding: 0.8rem;">Si el usuario ha pedido reducir animaciones por accesibilidad[cite: 11].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>hover / pointer</code></td>
+            <td style="padding: 0.8rem;">Si el dispositivo usa cursor preciso (ratón) o táctil (dedo)[cite: 11].</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Mobile-First: Estilos base para móvil */
+.tarjeta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Tablet (>= 600px) */
+@media (min-width: 600px) {
+  .tarjeta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Escritorio (>= 900px) */
+@media (min-width: 900px) {
+  .tarjeta-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+
+        <div class="preview-box" style="display: block;">
+          <div class="demo-breakpoint-tag" style="margin-bottom: 10px;">
+            Redimensiona la ventana para ver los cambios
+          </div>
+          <div class="demo-responsive-grid">
+            <div class="demo-box-resp">Caja 1</div>
+            <div class="demo-box-resp">Caja 2</div>
+            <div class="demo-box-resp">Caja 3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buenas prácticas -->
+    <section>
+      <h3>Buenas Prácticas de Maquetación Adaptable</h3>
+      <ul>
+        <li><strong>Enfoque Mobile-First:</strong> Escribir primero el código para pantallas pequeñas y usar <code>min-width</code> para ir añadiendo complejidad a medida que crece el espacio[cite: 11].</li>
+        <li><strong>Puntos de corte por diseño:</strong> Define los <em>breakpoints</em> en base a cuando el diseño "se rompe", no ajustándote a modelos específicos de teléfono o tablet[cite: 11].</li>
+        <li><strong>Meta Viewport imprescindible:</strong> Sin <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> en el <code>&lt;head&gt;</code>, el navegador móvil simulará una pantalla de escritorio encogida[cite: 11].</li>
+      </ul>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Adaptable no significa recortado</h3>
+      <p>
+        Una buena web adaptable reorganiza los contenidos, amplía zonas táctiles en móvil o muestra barras laterales en escritorio, pero nunca oculta información esencial solo por estar en pantalla pequeña[cite: 11].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

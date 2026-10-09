@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.8 Cajas flexibles: Flexbox</title>
+  
+  <!-- CSS global del portal -->
+  <link rel="stylesheet" href="../css/styles.css">
+  
+  <!-- CSS específico de la Lección 2.8 -->
+  <link rel="stylesheet" href="./css/leccion_2_8.css">
+  
+  <script type="module" src="../components/Header.js"></script>
+  <script type="module" src="../components/Footer.js"></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <article class="apunte-leccion">
+    <h1>Módulo 2. NOVEDADES DE CSS3</h1>
+    
+    <header>
+      <h2>2.8 Cajas flexibles: Flexbox</h2>
+    </header>
+
+    <section>
+      <p><strong>Flexbox</strong> es el sistema de maquetación unidimensional de CSS3 diseñado para distribuir espacio y alinear elementos a lo largo de un solo eje (en fila o columna)[cite: 11]. Se activa aplicando <code>display: flex</code> sobre el contenedor padre[cite: 11].</p>
+    </section>
+
+    <!-- Propiedades del Contenedor -->
+    <section>
+      <h3>Propiedades en el Contenedor</h3>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--accent-color);">
+            <th style="padding: 0.8rem;">Propiedad</th>
+            <th style="padding: 0.8rem;">Eje</th>
+            <th style="padding: 0.8rem;">Qué hace</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>justify-content</code></td>
+            <td style="padding: 0.8rem;">Principal</td>
+            <td style="padding: 0.8rem;">Distribuye el espacio sobrante (<code>flex-start</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code>)[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>align-items</code></td>
+            <td style="padding: 0.8rem;">Cruzado</td>
+            <td style="padding: 0.8rem;">Alinea los elementos en vertical/eje secundario (<code>stretch</code>, <code>center</code>, <code>flex-start</code>, <code>flex-end</code>)[cite: 11].</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 0.8rem;"><code>flex-wrap</code></td>
+            <td style="padding: 0.8rem;">-</td>
+            <td style="padding: 0.8rem;">Permite envolver en múltiples líneas si los elementos no caben (<code>nowrap</code>, <code>wrap</code>)[cite: 11].</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem;"><code>gap</code></td>
+            <td style="padding: 0.8rem;">Ambos</td>
+            <td style="padding: 0.8rem;">Define la separación exclusivamente entre ítems flex[cite: 11].</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="code-preview-container">
+        <pre><code>/* Distribución en eje principal y cruzado */
+.contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-flex-container demo-justify-between demo-align-center">
+            <div class="demo-flex-item">Item 1</div>
+            <div class="demo-flex-item demo-item-tall">Item 2</div>
+            <div class="demo-flex-item">Item 3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Propiedades en los Hijos -->
+    <section>
+      <h3>Propiedades en los Hijos (Flex Items)</h3>
+      <ul>
+        <li><strong><code>flex-grow</code>:</strong> Determina cuánto crece un hijo para ocupar el espacio sobrante[cite: 11].</li>
+        <li><strong><code>flex-shrink</code>:</strong> Cuánto se encoje si falta espacio (poner <code>0</code> evita que se deforme)[cite: 11].</li>
+        <li><strong><code>flex-basis</code>:</strong> Tamaño base inicial antes de repartir el espacio disponible[cite: 11].</li>
+        <li><strong><code>align-self</code>:</strong> Permite a un hijo sobrescribir la alineación cruzada de <code>align-items</code>[cite: 11].</li>
+        <li><strong>Shorthand:</strong> <code>flex: 1</code> equivale a <code>flex: 1 1 0%</code>[cite: 11].</li>
+      </ul>
+
+      <div class="code-preview-container">
+        <pre><code>/* Crecimiento proporcional y alineación individual */
+.item-1 { flex-grow: 1; }
+.item-2 { flex-grow: 2; } /* Crece el doble */
+.item-3 { align-self: flex-end; }</code></pre>
+
+        <div class="preview-box">
+          <div class="demo-flex-container demo-align-center" style="min-height: 100px;">
+            <div class="demo-flex-item demo-grow-1">Grow 1</div>
+            <div class="demo-flex-item demo-grow-2">Grow 2</div>
+            <div class="demo-flex-item demo-self-end">Self End</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devtools-info">
+      <h3>💡 IDEA CLAVE: Ventaja de `gap` sobre `margin`</h3>
+      <p>
+        Usar <code>gap</code> elimina la necesidad de trucos antiguos con márgenes o pseudo-clases <code>:last-child</code>[cite: 11]. La propiedad <code>gap</code> añade espacio <strong>únicamente entre los ítems internos</strong>, dejando limpios los bordes exteriores del contenedor padre[cite: 11].
+      </p>
+    </section>
+
+  </article>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

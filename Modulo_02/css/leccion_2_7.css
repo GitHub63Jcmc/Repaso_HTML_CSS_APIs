@@ -1,0 +1,68 @@
+/* Modulo_02/css/leccion_2_7.css */
+
+/* Declaración de Keyframes */
+@keyframes girar-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulso-card {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px rgba(56, 189, 248, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4);
+  }
+}
+
+/* Demostración Loader Infinito */
+.demo-loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: girar-loader 1s linear infinite;
+}
+
+/* Demostración Pulso con Iteración e Inversión */
+.demo-pulse-box {
+  padding: 12px 20px;
+  background-color: #1e293b;
+  border: 1px solid #38bdf8;
+  border-radius: 8px;
+  color: #38bdf8;
+  font-weight: bold;
+  font-size: 0.85rem;
+  animation: pulso-card 2s ease-in-out infinite;
+}
+
+/* Control de estado (play-state) */
+.demo-pausable-box {
+  width: 100px;
+  height: 35px;
+  background-color: #a855f7;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  animation: girar-loader 3s linear infinite;
+  cursor: pointer;
+}
+
+.demo-pausable-box:hover {
+  animation-play-state: paused;
+}
