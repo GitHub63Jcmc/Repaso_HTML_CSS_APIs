@@ -28,6 +28,16 @@
   grid-template-columns: 1fr 2fr 1fr;
 }
 
+/* Adaptación para pantallas estrechas */
+@media (max-width: 480px) {
+  .demo-grid-cols {
+    grid-template-columns: 1fr;
+  }
+  .demo-span-2 {
+    grid-column: span 1;
+  }
+}
+
 .demo-span-2 {
   grid-column: span 2;
   background-color: #0284c7;
@@ -52,3 +62,49 @@
 .demo-area-sidebar { grid-area: sidebar; background-color: #1e293b; }
 .demo-area-main    { grid-area: main;    background-color: #0284c7; color: #fff; }
 .demo-area-footer  { grid-area: footer;  background-color: #0f172a; border-color: #475569; }
+
+/* --------------------- nuevo ---------------------- */
+@media (max-width: 400px) {
+  .demo-grid-container {
+    padding: 6px;
+    gap: 6px;
+  }
+  .demo-grid-areas {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer" !important;
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Corrección global estricta para pantallas menores de 480px */
+@media (max-width: 480px) {
+  .preview-box {
+    max-width: 100% !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .code-preview-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Forzar que las cajas de 2.5 no excedan la pantalla */
+  .demo-box {
+    width: 80px !important;
+    height: 50px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Forzar que las celdas de Grid en 2.9 se apilen verticalmente */
+  .demo-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-span-2 {
+    grid-column: span 1 !important;
+  }
+}

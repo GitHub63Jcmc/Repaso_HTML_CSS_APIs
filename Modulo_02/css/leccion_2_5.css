@@ -86,3 +86,54 @@
   color: #fff;
   transform: rotateY(180deg);
 }
+
+/* En leccion_2_5.css o directamente en el HTML de la preview-box */
+.preview-box[style*="grid"] {
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+}
+
+/* -------------------------- nuevo ------------------- */
+/* Adaptación extrema para móviles muy pequeños (300px - 400px) */
+@media (max-width: 400px) {
+  .preview-box[style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-box {
+    width: 100% !important;
+    max-width: 100px;
+  }
+  .demo-card-container {
+    width: 100% !important;
+    max-width: 120px;
+  }
+}
+
+/* Corrección global estricta para pantallas menores de 480px */
+@media (max-width: 480px) {
+  .preview-box {
+    max-width: 100% !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .code-preview-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Forzar que las cajas de 2.5 no excedan la pantalla */
+  .demo-box {
+    width: 80px !important;
+    height: 50px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Forzar que las celdas de Grid en 2.9 se apilen verticalmente */
+  .demo-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-span-2 {
+    grid-column: span 1 !important;
+  }
+}
