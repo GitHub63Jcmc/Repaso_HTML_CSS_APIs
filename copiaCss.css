@@ -1,0 +1,681 @@
+/* styles.css  */
+
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
+  --border-color: #334155;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header y Navegación --- */
+.main-header {
+  display: flex; /* Cambiado de block a flex */
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+.main-header .logo h1 {
+  font-size: 1.3rem;
+  color: var(--accent-color);
+  margin: 0;
+}
+main, article.apunte-leccion, .dashboard-container {
+  flex: 1; /* Empuja el footer siempre hacia abajo */
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center; /* Alinea verticalmente todos los elementos (enlaces y dropdowns) */
+  gap: 1rem;
+}
+
+.nav-menu a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Dashboard / Index --- */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.welcome-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-card h2 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.module-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.module-card.disabled {
+  opacity: 0.6;
+}
+
+.module-card h3 {
+  color: var(--text-color);
+  margin-top: 0;
+}
+
+.module-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: var(--border-color);
+  color: var(--text-muted);
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+/* --- Footer --- */
+.main-footer {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+  box-sizing: border-box;
+}
+
+main, article.apunte-leccion, .dashboard-container {
+  flex: 1; /* Empuja el footer hacia abajo si hay poco contenido */
+}
+
+/* Apunte Lección   */
+.apunte-leccion {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 2rem auto; /* Añadido margin 0 auto para centrar horizontalmente */
+  box-sizing: border-box;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+header h2 {
+  margin: 0;
+  color: var(--accent-color);
+  font-size: 1.8rem;
+}
+
+section {
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+}
+
+h3 {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+ul, ol {
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+li strong {
+  color: var(--text-color);
+}
+
+.devtools-info p {
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.devtools-info strong {
+  color: var(--accent-color);
+}
+
+/* --- Dropdown Navegación --- */
+.dropdown {
+  position: relative;
+  display: flex; /* Cambiado de inline-block a flex para alinear con el resto de enlaces */
+  /* display: inline-block; */
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--card-bg);
+  min-width: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  z-index: 100;
+}
+
+.dropdown-content a {
+  color: var(--text-muted);
+  padding: 0.6rem 1rem;
+  display: block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent-color);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* -------------- Parte nueva de las lecciones ------------------- */
+/* Layout interactivo de 2 columnas (Código + Previsualización) */
+.code-preview-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  background-color: var(--card-bg, #1e293b);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.code-preview-container pre {
+  margin: 0;
+  height: 100%;
+}
+
+.code-preview-container pre code {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: #0f172a;
+  border-radius: 8px;
+  border: 1px dashed var(--border-color, #334155);
+  min-height: 200px;
+}
+
+/* En pantallas pequeñas pasa a 1 sola columna */
+@media (max-width: 768px) {
+  .code-preview-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ajustes responsivos extremos para pantallas de móvil pequeñas (< 480px) */
+@media (max-width: 480px) {
+  .code-preview-container {
+    grid-template-columns: 1fr;
+    padding: 0.5rem; /* Reduce el padding global para ganar espacio útil */
+    gap: 1rem;
+  }
+
+  .preview-box {
+    padding: 0.5rem;
+    min-height: 150px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* ------------------- leciion_2_5.css ----------------- */
+/* Modulo_02/css/leccion_2_5.css */
+
+/* Base para los bloques de demostración */
+.demo-box {
+  width: 100px;
+  height: 60px;
+  background-color: #3b82f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* Transformaciones 2D */
+.demo-translate {
+  transform: translate(15px, -10px);
+  background-color: #0ea5e9;
+}
+
+.demo-rotate {
+  transform: rotate(15deg);
+  background-color: #8b5cf6;
+}
+
+.demo-scale {
+  transform: scale(1.15);
+  background-color: #10b981;
+}
+
+.demo-skew {
+  transform: skewX(-12deg);
+  background-color: #f59e0b;
+}
+
+/* Transform-origin */
+.demo-origin {
+  transform-origin: top left;
+  transform: rotate(20deg);
+  background-color: #ec4899;
+}
+
+/* Tarjeta 3D con Flip */
+.demo-card-container {
+  perspective: 600px;
+  width: 120px;
+  height: 80px;
+}
+
+.demo-card-3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.demo-card-container:hover .demo-card-3d {
+  transform: rotateY(180deg);
+}
+
+.demo-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.demo-face-front {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.demo-face-back {
+  background-color: #ef4444;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* En leccion_2_5.css o directamente en el HTML de la preview-box */
+.preview-box[style*="grid"] {
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+}
+
+/* -------------------------- nuevo ------------------- */
+/* Adaptación extrema para móviles muy pequeños (300px - 400px) */
+@media (max-width: 400px) {
+  .preview-box[style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-box {
+    width: 100% !important;
+    max-width: 100px;
+  }
+  .demo-card-container {
+    width: 100% !important;
+    max-width: 120px;
+  }
+}
+
+/* Corrección global estricta para pantallas menores de 480px */
+@media (max-width: 480px) {
+  .preview-box {
+    max-width: 100% !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .code-preview-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Forzar que las cajas de 2.5 no excedan la pantalla */
+  .demo-box {
+    width: 80px !important;
+    height: 50px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* Forzar que las celdas de Grid en 2.9 se apilen verticalmente */
+  .demo-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-span-2 {
+    grid-column: span 1 !important;
+  }
+}
+
+/* ------------------- leciion_2_8.css ----------------- */
+
+/* Modulo_02/css/leccion_2_8.css */
+
+/* Contenedor base para demos */
+.demo-flex-container {
+  display: flex;
+  flex-wrap: wrap; 
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-flex-item {
+  background-color: #1e293b;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Demo Justify Content */
+.demo-justify-between {
+  justify-content: space-between;
+}
+
+/* Demo Align Items & Gap */
+.demo-align-center {
+  align-items: center;
+  gap: 12px;
+  min-height: 90px;
+}
+
+.demo-item-tall {
+  padding: 20px 14px;
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* Demo Flex-Grow */
+.demo-grow-1 {
+  flex-grow: 1;
+}
+
+.demo-grow-2 {
+  flex-grow: 2;
+  background-color: #0284c7;
+  color: #fff;
+}
+
+/* Demo Align-Self */
+.demo-self-end {
+  align-self: flex-end;
+  background-color: #ef4444;
+  color: #fff;
+}
+
+/* ------------------- nuevo -------------------- */
+@media (max-width: 400px) {
+  .demo-flex-container {
+    padding: 6px;
+    gap: 6px !important;
+  }
+  .demo-flex-item {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+    flex: 1 1 100%; /* Forzar que ocupen toda la línea si es necesario */
+    text-align: center;
+  }
+}
+
+/* Corrección global estricta para pantallas menores de 480px */
+@media (max-width: 480px) {
+  .preview-box {
+    max-width: 100% !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .code-preview-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Forzar que las cajas de 2.5 no excedan la pantalla */
+  .demo-box {
+    width: 80px !important;
+    height: 50px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* Forzar que las celdas de Grid en 2.9 se apilen verticalmente */
+  .demo-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-span-2 {
+    grid-column: span 1 !important;
+  }
+}
+
+
+/* ------------------- leciion_2_9.css ----------------- */
+
+/* Modulo_02/css/leccion_2_9.css */
+
+/* Base para los contenedores Grid de demostración */
+.demo-grid-container {
+  display: grid;
+  gap: 10px;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.demo-grid-item {
+  background-color: #1e293b;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Demo Grid Básica con fr y span */
+.demo-grid-cols {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* Adaptación para pantallas estrechas */
+@media (max-width: 480px) {
+  .demo-grid-cols {
+    grid-template-columns: 1fr;
+  }
+  .demo-span-2 {
+    grid-column: span 1;
+  }
+}
+
+.demo-span-2 {
+  grid-column: span 2;
+  background-color: #0284c7;
+  color: #fff;
+}
+
+/* Demo Responsive Autogrid (auto-fit + minmax) */
+.demo-grid-autofit {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+/* Demo Grid Template Areas */
+.demo-grid-areas {
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 1fr 2fr;
+}
+
+.demo-area-header  { grid-area: header;  background-color: #3b82f6; color: #fff; }
+.demo-area-sidebar { grid-area: sidebar; background-color: #1e293b; }
+.demo-area-main    { grid-area: main;    background-color: #0284c7; color: #fff; }
+.demo-area-footer  { grid-area: footer;  background-color: #0f172a; border-color: #475569; }
+
+/* --------------------- nuevo ---------------------- */
+@media (max-width: 400px) {
+  .demo-grid-container {
+    padding: 6px;
+    gap: 6px;
+  }
+  .demo-grid-areas {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer" !important;
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Corrección global estricta para pantallas menores de 480px */
+@media (max-width: 480px) {
+  .preview-box {
+    max-width: 100% !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  .code-preview-container {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Forzar que las cajas de 2.5 no excedan la pantalla */
+  .demo-box {
+    width: 80px !important;
+    height: 50px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Forzar que las celdas de Grid en 2.9 se apilen verticalmente */
+  .demo-grid-container {
+    grid-template-columns: 1fr !important;
+  }
+  .demo-span-2 {
+    grid-column: span 1 !important;
+  }
+}
+
+
+

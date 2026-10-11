@@ -19,9 +19,8 @@ body {
   flex-direction: column;
 }
 
-/* --- Header y Navegación --- */
 .main-header {
-  display: flex; /* Cambiado de block a flex */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--card-bg);
@@ -36,13 +35,14 @@ body {
   color: var(--accent-color);
   margin: 0;
 }
+
 main, article.apunte-leccion, .dashboard-container {
-  flex: 1; /* Empuja el footer siempre hacia abajo */
+  flex: 1;
 }
 
 .nav-menu {
   display: flex;
-  align-items: center; /* Alinea verticalmente todos los elementos (enlaces y dropdowns) */
+  align-items: center;
   gap: 1rem;
 }
 
@@ -60,7 +60,6 @@ main, article.apunte-leccion, .dashboard-container {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* --- Dashboard / Index --- */
 .dashboard-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -136,7 +135,6 @@ main, article.apunte-leccion, .dashboard-container {
   cursor: not-allowed;
 }
 
-/* --- Footer --- */
 .main-footer {
   display: block;
   width: 100%;
@@ -149,11 +147,6 @@ main, article.apunte-leccion, .dashboard-container {
   box-sizing: border-box;
 }
 
-main, article.apunte-leccion, .dashboard-container {
-  flex: 1; /* Empuja el footer hacia abajo si hay poco contenido */
-}
-
-/* Apunte Lección   */
 .apunte-leccion {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
@@ -161,7 +154,7 @@ main, article.apunte-leccion, .dashboard-container {
   padding: 2.5rem;
   max-width: 800px;
   width: 100%;
-  margin: 0 auto 2rem auto; /* Añadido margin 0 auto para centrar horizontalmente */
+  margin: 0 auto 2rem auto;
   box-sizing: border-box;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
@@ -212,11 +205,9 @@ li strong {
   color: var(--accent-color);
 }
 
-/* --- Dropdown Navegación --- */
 .dropdown {
   position: relative;
-  display: flex; /* Cambiado de inline-block a flex para alinear con el resto de enlaces */
-  /* display: inline-block; */
+  display: flex;
   align-items: center;
 }
 
@@ -252,7 +243,6 @@ li strong {
   display: block;
 }
 
-/* -------------- Parte nueva de las lecciones ------------------- */
 /* Layout interactivo de 2 columnas (Código + Previsualización) */
 .code-preview-container {
   display: grid;
@@ -293,5 +283,157 @@ li strong {
 @media (max-width: 768px) {
   .code-preview-container {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Adaptación global limpia para móviles pequeños (< 480px) */
+@media (max-width: 480px) {
+  .apunte-leccion {
+    padding: 1rem; /* Reduce los márgenes interiores generales de la lección */
+  }
+
+  .code-preview-container {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+    gap: 1rem;
+    box-sizing: border-box;
+  }
+
+  .preview-box {
+    padding: 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Asegurar que las cajas de demostración flexibles o de bloques no fuercen desbordamiento */
+  .demo-flex-container {
+    flex-wrap: wrap;
+  }
+}
+
+/* Ajuste definitivo para pantallas móviles pequeñas (< 490px) */
+@media (max-width: 490px) {
+  .apunte-leccion {
+    padding: 1rem !important; /* Reduce los márgenes laterales gigantes de la tarjeta principal */
+  }
+
+  .code-preview-container {
+    grid-template-columns: 1fr !important;
+    padding: 0.75rem !important;
+    gap: 1rem !important;
+  }
+
+  .preview-box {
+    padding: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Forzar que los elementos de las demos de Flexbox o Grid no se desborden */
+  .demo-flex-container {
+    flex-wrap: wrap !important;
+  }
+}
+
+/* Corrección responsiva global para móviles estrechos (< 500px) */
+@media (max-width: 500px) {
+  /* Evita que el contenedor de la lección toque los bordes y asfixie el contenido */
+  .apunte-leccion {
+    padding: 1rem !important;
+    margin: 0 0.5rem 1rem 0.5rem !important;
+    width: auto !important;
+  }
+}
+
+/* Layout interactivo de 2 columnas (Código + Previsualización) */
+.code-preview-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  background-color: var(--card-bg, #1e293b);
+  border: 1px solid var(--border-color, #334155);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  box-sizing: border-box;
+  overflow: hidden; /* Evita cualquier escape visual */
+}
+
+.code-preview-container pre {
+  margin: 0;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.code-preview-container pre code {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: pre-wrap; /* ¡Esto hace que el código baje de línea y no estire el grid! */
+  word-break: break-word;
+}
+
+.preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: #0f172a;
+  border-radius: 8px;
+  border: 1px dashed var(--border-color, #334155);
+  min-height: 200px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* En pantallas pequeñas pasa a 1 sola columna */
+@media (max-width: 768px) {
+  .code-preview-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Adaptación responsiva estricta para móviles pequeños (< 480px) */
+@media (max-width: 480px) {
+  /* 1. Header y menú de navegación en columna */
+  .main-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* 2. Contenedor principal de lecciones con márgenes seguros */
+  .apunte-leccion {
+    padding: 1rem !important;
+    margin: 0 0.5rem 1rem 0.5rem !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Solución definitiva para tablas en móviles: contenedor con scroll horizontal limpio */
+  article.apunte-leccion table {
+    width: 100% !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Forzar que el texto dentro de las celdas de las tablas rompa las palabras largas y no desborde */
+  article.apunte-leccion th,
+  article.apunte-leccion td {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 200px; /* Evita que celdas individuales se estiren de más */
+    font-size: 0.85rem; /* Ajuste sutil de tamaño para ganar legibilidad en móviles */
+    padding: 0.5rem;
   }
 }

@@ -1,9 +1,7 @@
 /* Modulo_02/css/leccion_2_8.css */
 
-/* Contenedor base para demos */
 .demo-flex-container {
   display: flex;
-  flex-wrap: wrap; 
   background-color: #0f172a;
   border: 1px solid #334155;
   border-radius: 8px;
@@ -23,12 +21,10 @@
   text-align: center;
 }
 
-/* Demo Justify Content */
 .demo-justify-between {
   justify-content: space-between;
 }
 
-/* Demo Align Items & Gap */
 .demo-align-center {
   align-items: center;
   gap: 12px;
@@ -41,7 +37,6 @@
   color: #fff;
 }
 
-/* Demo Flex-Grow */
 .demo-grow-1 {
   flex-grow: 1;
 }
@@ -52,53 +47,8 @@
   color: #fff;
 }
 
-/* Demo Align-Self */
 .demo-self-end {
   align-self: flex-end;
   background-color: #ef4444;
   color: #fff;
-}
-
-/* ------------------- nuevo -------------------- */
-@media (max-width: 400px) {
-  .demo-flex-container {
-    padding: 6px;
-    gap: 6px !important;
-  }
-  .demo-flex-item {
-    padding: 8px 10px;
-    font-size: 0.75rem;
-    flex: 1 1 100%; /* Forzar que ocupen toda la línea si es necesario */
-    text-align: center;
-  }
-}
-
-/* Corrección global estricta para pantallas menores de 480px */
-@media (max-width: 480px) {
-  .preview-box {
-    max-width: 100% !important;
-    padding: 8px !important;
-    box-sizing: border-box !important;
-    overflow-x: hidden !important;
-  }
-  
-  .code-preview-container {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Forzar que las cajas de 2.5 no excedan la pantalla */
-  .demo-box {
-    width: 80px !important;
-    height: 50px !important;
-    font-size: 0.7rem !important;
-  }
-
-  /* Forzar que las celdas de Grid en 2.9 se apilen verticalmente */
-  .demo-grid-container {
-    grid-template-columns: 1fr !important;
-  }
-  .demo-span-2 {
-    grid-column: span 1 !important;
-  }
 }
