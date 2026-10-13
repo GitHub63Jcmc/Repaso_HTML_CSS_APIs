@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3 - 3.1 Introducción al elemento canvas y su contexto de dibujo</title>
+  
+  <!-- Rutas corregidas subiendo dos niveles (../../) -->
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_1.css">
+  
+  <script src="../../components/header.js" defer></script>
+  <script src="../../components/footer.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.1 Introducción al elemento canvas y su contexto de dibujo</h2>
+        <span class="meta-info">Bloque 1 · Gráficos y Dibujo con la API Canvas</span>
+      </header>
+
+      <article>
+        <p>
+          La etiqueta <code>&lt;canvas&gt;</code> reserva en la página un <strong>lienzo de píxeles</strong> sobre el que se dibuja desde JavaScript: gráficos, juegos, editores de imagen, firmas digitales... Se declara con sus dimensiones (ejemplo: <code>&lt;canvas id="lienzo" width="600" height="400"&gt;&lt;/canvas&gt;</code>). Si no se indica, mide 300x150 y el texto interior sirve de alternativa para navegadores sin soporte. Conviene fijar el tamaño con los atributos, no solo con CSS: escalarlo con CSS deforma y pixela el dibujo.
+        </p>
+
+        <h3>El Contexto de Dibujo (2D)</h3>
+        <p>
+          El lienzo por sí solo no hace nada; para dibujar se pide su <strong>contexto</strong>, el objeto que contiene todos los métodos de dibujo. El bidimensional se obtiene con <code>const ctx = lienzo.getContext('2d')</code>. Todo se sitúa mediante coordenadas: el <strong>origen (0,0) está en la esquina superior izquierda</strong>. La X crece hacia la derecha y la Y hacia abajo. Existen otros contextos para gráficos 3D acelerados (<code>webgl</code>, <code>webgl2</code> y el más reciente <code>webgpu</code>), que quedan fuera del alcance de este curso.
+        </p>
+
+        <h3>Ejemplo Práctico: Dibujar en Canvas</h3>
+        <div class="card-box canvas-demo-box">
+          <canvas id="miLienzo" width="400" height="250"></canvas>
+          <div class="canvas-buttons-wrapper">
+            <button id="btnRectangulo" class="btn-home btn-canvas-azul">Dibujar Rectángulo</button>
+            <button id="btnCirculo" class="btn-home btn-canvas-verde">Dibujar Círculo</button>
+            <button id="btnLimpiar" class="btn-home btn-canvas-rojo">Limpiar Lienzo</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+  <script src="js/leccion_3_1.js" defer></script>
+
+</body>
+</html>
