@@ -64,6 +64,7 @@ main, article.apunte-leccion, .dashboard-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem;
+  margin-bottom: 40px;
 }
 
 .welcome-card {

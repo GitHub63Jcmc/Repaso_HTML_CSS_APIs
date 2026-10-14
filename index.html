@@ -4,46 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal de Repaso - HTML5, CSS3 & APIs</title>
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/styles.css"> <!-- Estilos generales si aplica -->
+  <!-- <link rel="stylesheet" href="css/base.css"> -->
+  <link rel="stylesheet" href="css/styles.css"> <!-- Estilos generales si aplica -->
   <link rel="stylesheet" href="css/modulo_03.css"> <!-- O el css específico de la lección -->
   
   <!-- Carga de Web Components -->
-  <script type="module" src="components/Header.js"></script>
-  <script type="module" src="components/Footer.js"></script>
+  <script src="components/Header.js" defer></script>
+  <script src="components/Footer.js" defer></script>
 </head>
 <body>
 
   <main-header></main-header>
 
-  <main class="dashboard-container">
-    <section class="welcome-card">
-      <h2>Portal de Repaso Teórico y Práctico</h2>
-      <p>Selecciona un módulo para acceder a sus lecciones, apuntes interactivos y ejercicios prácticos.</p>
+  <main class="contenedor-principal">
+    <section class="welcome-card" style="text-align: center; margin-bottom: 30px;">
+      <h1>CURSO SEPE - IFCD0120 HTML5 Y CSS3, NUEVOS APIS Y RECURSOS</h1>
+      <p style="font-size: 1.1rem; color: #aaa;">Portal Principal de Módulos Prácticos</p>
     </section>
 
-    <div class="modules-grid">
-      <!-- Tarjeta Módulo 1 -->
-      <article class="module-card">
-        <h3>Módulo 01: HTML5 Semántico y Multimedia</h3>
-        <p>Estructura semántica, desarrollo web en cliente, elementos multimedia y formularios avanzados.</p>
-        <a href="Modulo_01/leccion_1_1.html" class="btn-primary">Ver Lecciones</a>
-      </article>
+    <section class="dashboard-container">
+      <h2>Portal de Repaso Teórico y Práctico</h2>
+      <p>Selecciona un módulo para acceder a sus lecciones, apuntes interactivos y ejercicios prácticos.</p>
 
-      <!-- Tarjeta Módulo 2 -->
-      <article class="module-card">
-        <h3>Módulo 02: CSS3 Avanzado</h3>
-        <p>Selectores, Flexbox, CSS Grid, tipografía web, transformaciones y animaciones 2D/3D.</p>
-        <a href="Modulo_02/leccion_2_1.html" class="btn-primary">Ver Lecciones</a>
-      </article>
+      <div class="modules-grid">
+        <!-- Módulo 01 -->
+        <article class="module-card">
+          <h3>Módulo 01: HTML5 Semántico y Multimedia</h3>
+          <p>Estructura semántica, desarrollo web en cliente, elementos multimedia y formularios avanzados.</p>
+          <a href="Modulo_01/index.html" class="btn-primary">Acceder al Módulo 1</a>
+        </article>
 
-      <!-- Tarjeta Módulo 3 -->
-      <article class="module-card">
-        <h3>Módulo 03: HTML5 APIs & Dashboard</h3>
-        <p>Geolocalización, Fetch API, Web Storage, Drag & Drop y desarrollo con componentes.</p>
-        <a href="Modulo_03/index.html" class="btn-primary">Ver Lecciones</a>
-      </article>
-    </div>
+        <!-- Módulo 02 -->
+        <article class="module-card">
+          <h3>Módulo 02: CSS3 Avanzado</h3>
+          <p>Selectores, Flexbox, CSS Grid, tipografía web, transformaciones y animaciones 2D/3D.</p>
+          <a href="Modulo_02/index.html" class="btn-primary">Acceder al Módulo 2</a>
+        </article>
+
+        <!-- Módulo 03 -->
+        <article class="module-card">
+          <h3>Módulo 03: HTML5 APIs & Dashboard</h3>
+          <p>APIs nativas de HTML5, Geolocalización, Fetch API, Web Storage, API de Drag & Drop y desarrollo de componentes.</p>
+          <a href="Modulo_03/index.html" class="btn-primary">Acceder al Módulo 3</a>
+        </article>
+      </div>
+    </section>
   </main>
 
   <main-footer></main-footer>

@@ -1,0 +1,5 @@
+/* Estilo específico para las tarjetas de lección en el índice del Módulo 3 */
+.dashboard-container .modules-grid .module-card {
+  max-width: 450px;
+  margin: 0 auto;
+}
