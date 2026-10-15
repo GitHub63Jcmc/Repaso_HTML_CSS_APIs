@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 3 - 3.1 Introducción al elemento canvas y su contexto de dibujo</title>
+  <title>3.1 Introducción al elemento canvas y su contexto de dibujo</title>
   
-  <!-- Rutas corregidas subiendo dos niveles (../../) -->
-  <link rel="stylesheet" href="../../css/base.css">
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="css/leccion_3_1.css">
   
-  <script src="../../components/header.js" defer></script>
-  <script src="../../components/footer.js" defer></script>
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_1.js" defer></script>
 </head>
 <body>
 
@@ -25,22 +24,40 @@
       </header>
 
       <article>
-        <p>
-          La etiqueta <code>&lt;canvas&gt;</code> reserva en la página un <strong>lienzo de píxeles</strong> sobre el que se dibuja desde JavaScript: gráficos, juegos, editores de imagen, firmas digitales... Se declara con sus dimensiones (ejemplo: <code>&lt;canvas id="lienzo" width="600" height="400"&gt;&lt;/canvas&gt;</code>). Si no se indica, mide 300x150 y el texto interior sirve de alternativa para navegadores sin soporte. Conviene fijar el tamaño con los atributos, no solo con CSS: escalarlo con CSS deforma y pixela el dibujo.
-        </p>
+        <p>La etiqueta <code>&lt;canvas&gt;</code> reserva en la página un <strong>lienzo de píxeles</strong> sobre el que se dibuja desde JavaScript: gráficos, juegos, editores de imagen, firmas digitales... Se declara con sus dimensiones (ejemplo: <code>&lt;canvas id="lienzo" width="600" height="400"&gt;&lt;/canvas&gt;</code>). Si no se indica, mide 300x150 y el texto interior sirve de alternativa para navegadores sin soporte. Conviene fijar el tamaño con los atributos, no solo con CSS: escalarlo con CSS deforma y pixela el dibujo.</p>
 
         <h3>El Contexto de Dibujo (2D)</h3>
-        <p>
-          El lienzo por sí solo no hace nada; para dibujar se pide su <strong>contexto</strong>, el objeto que contiene todos los métodos de dibujo. El bidimensional se obtiene con <code>const ctx = lienzo.getContext('2d')</code>. Todo se sitúa mediante coordenadas: el <strong>origen (0,0) está en la esquina superior izquierda</strong>. La X crece hacia la derecha y la Y hacia abajo. Existen otros contextos para gráficos 3D acelerados (<code>webgl</code>, <code>webgl2</code> y el más reciente <code>webgpu</code>), que quedan fuera del alcance de este curso.
-        </p>
+        <p>El lienzo por sí solo no hace nada; para dibujar se pide su <strong>contexto</strong>, el objeto que contiene todos los métodos de dibujo. El bidimensional se obtiene con <code>const ctx = lienzo.getContext('2d')</code>. Todo se sitúa mediante coordenadas: el <strong>origen (0,0) está en la esquina superior izquierda</strong>. La X crece hacia la derecha y la Y hacia abajo. Existen otros contextos para gráficos 3D acelerados (<code>webgl</code>, <code>webgl2</code> y el más reciente <code>webgpu</code>), que quedan fuera del alcance de este curso.</p>
 
-        <h3>Ejemplo Práctico: Dibujar en Canvas</h3>
-        <div class="card-box canvas-demo-box">
-          <canvas id="miLienzo" width="400" height="250"></canvas>
-          <div class="canvas-buttons-wrapper">
-            <button id="btnRectangulo" class="btn-home btn-canvas-azul">Dibujar Rectángulo</button>
-            <button id="btnCirculo" class="btn-home btn-canvas-verde">Dibujar Círculo</button>
-            <button id="btnLimpiar" class="btn-home btn-canvas-rojo">Limpiar Lienzo</button>
+        <h3>Ejemplo 1: Dibujar Formas Geométricas</h3>
+        <div class="canvas-container">
+          <canvas id="lienzo" width="500" height="300"></canvas>
+          <div class="canvas-controls">
+            <button id="btnRectangulo" class="btn-primary">Dibujar Rectángulo</button>
+            <button id="btnCirculo" class="btn-primary" style="background-color: #27ae60;">Dibujar Círculo</button>
+            <button id="btnLimpiar" class="btn-primary" style="background-color: #e74c3c;">Limpiar Lienzo</button>
+          </div>
+        </div>
+
+        <h3>Ejemplo 2: Pizarra Interactiva Avanzada</h3>
+        <p>Elige un color, selecciona el modo de dibujo (Trazo libre, Rectángulo o Círculo) y dibuja sobre el lienzo arrastrando el ratón.</p>
+        
+        <div class="canvas-container">
+          <!-- Controles de configuración (Color, Grosor y Herramienta) -->
+          <div class="canvas-toolbar">
+            <label>Color: <input type="color" id="colorPicker" value="#3498db"></label>
+            <label>Grosor: <input type="range" id="grosorRange" min="1" max="20" value="3"></label>
+            <div class="tool-buttons">
+              <button id="modoLibre" class="btn-tool active">Lápiz</button>
+              <button id="modoRect" class="btn-tool">Rectángulo</button>
+              <button id="modoCirc" class="btn-tool">Círculo</button>
+            </div>
+          </div>
+
+          <canvas id="lienzoLibre" width="500" height="300"></canvas>
+          
+          <div class="canvas-controls">
+            <button id="btnLimpiarLibre" class="btn-primary" style="background-color: #e74c3c;">Limpiar Pizarra</button>
           </div>
         </div>
       </article>
@@ -48,8 +65,6 @@
   </main>
 
   <main-footer></main-footer>
-
-  <script src="js/leccion_3_1.js" defer></script>
 
 </body>
 </html>

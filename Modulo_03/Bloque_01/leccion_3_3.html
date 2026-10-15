@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.3 Gestión de colores, estilos y renderizado de texto</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_3.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_3.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.3 Gestión de colores, estilos y renderizado de texto</h2>
+        <span class="meta-info">Bloque 1 · Gráficos y Dibujo con la API Canvas</span>
+      </header>
+
+      <article>
+        <p>Antes de dibujar se configura el pincel: <code>fillStyle</code> fija el color de relleno y <code>strokeStyle</code> el del contorno; ambos aceptan cualquier color CSS (nombres, hexadecimal, rgba()). El grosor de línea se ajusta con <code>lineWidth</code>, los extremos y las uniones con <code>lineCap</code> y <code>lineJoin</code>, y la transparencia global con <code>globalAlpha</code>.</p>
+
+        <p>También hay degradados propios —se crean con <code>createLinearGradient()</code> o <code>createRadialGradient()</code>, se añaden paradas con <code>addColorStop()</code> y se asignan a <code>fillStyle</code>—, rellenos de patrón con <code>createPattern()</code> y sombras con <code>shadowColor</code> y <code>shadowBlur</code>.</p>
+
+        <h3>Renderizado de Texto</h3>
+        <p>El texto se dibuja como gráficos: <code>font = 'bold 24px Poppins'</code> define la letra con sintaxis CSS, <code>fillText('Hola', x, y)</code> lo pinta relleno y <code>strokeText()</code> solo el contorno. <code>textAlign</code> y <code>textBaseline</code> controlan la alineación respecto al punto de contexto, y <code>measureText(texto)</code> devuelve un objeto de métricas cuya propiedad <code>width</code> es el ancho que ocupará la cuerda, imprescindible para centrar o ajustar composiciones.</p>
+
+        <div class="idea-clave">
+          <strong>IDEA CLAVE:</strong> Canvas pinta píxeles, no objetos: una vez dibujado algo, el lienzo no lo recuerda. Para mover una figura hay que borrar y redibujar (en animaciones, con <code>requestAnimationFrame</code>). Y como es una imagen, aporta siempre una alternativa textual accesible para quien no pueda verla.
+        </div>
+
+        <h3>Ejemplo Práctico: Estilos, Degradados y Texto</h3>
+        <p>Prueba los botones para renderizar formas con degradados avanzados, sombras y texto estilizado sobre el canvas.</p>
+
+        <div class="canvas-container">
+          <canvas id="lienzoEstilos" width="500" height="300"></canvas>
+          <div class="canvas-controls">
+            <button id="btnDegradado" class="btn-primary">Degradado y Sombra</button>
+            <button id="btnTexto" class="btn-primary" style="background-color: #27ae60;">Renderizar Texto</button>
+            <button id="btnLimpiar" class="btn-primary" style="background-color: #e74c3c;">Limpiar Lienzo</button>
+          </div>
+        </div>
+
+        <h3>Ejemplo 2: Personalizador Interactivo de Texto y Colores</h3>
+        <p>Escribe tu propio texto, selecciona el color que prefieras y dibuja formas o texto personalizado sobre el lienzo.</p>
+
+        <div class="canvas-container">
+          <div class="canvas-toolbar">
+            <label>Texto: <input type="text" id="customText" value="¡Canvas mola!" class="input-text"></label>
+            <label>Color: <input type="color" id="customColor" value="#9b59b6"></label>
+          </div>
+
+          <canvas id="lienzoPersonalizado" width="500" height="300"></canvas>
+          
+          <div class="canvas-controls">
+            <button id="btnDibujarRect" class="btn-primary">Dibujar Rectángulo con Color</button>
+            <button id="btnEscribirTexto" class="btn-primary" style="background-color: #27ae60;">Escribir Texto Personalizado</button>
+            <button id="btnLimpiarPersonalizado" class="btn-primary" style="background-color: #e74c3c;">Limpiar Lienzo</button>
+          </div>
+        </div>
+        
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

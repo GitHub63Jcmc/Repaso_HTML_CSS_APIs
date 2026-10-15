@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.2 Creación de formas básicas, líneas y trazados</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_2.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_2.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.2 Creación de formas básicas, líneas y trazados</h2>
+        <span class="meta-info">Bloque 1 · Gráficos y Dibujo con la API Canvas</span>
+      </header>
+
+      <article>
+        <p>La única forma primitiva directa en canvas es el rectángulo; todo lo demás se construye con <strong>trazados (paths)</strong>: secuencias de puntos y curvas que después se rellenan o se perfilan.</p>
+
+        <h3>Métodos principales de trazados</h3>
+        <table class="tabla-metodos">
+          <thead>
+            <tr>
+              <th>Método</th>
+              <th>Qué hace</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>fillRect(x, y, ancho, alto)</code></td>
+              <td>Dibuja un rectángulo relleno.</td>
+            </tr>
+            <tr>
+              <td><code>strokeRect(x, y, ancho, alto)</code></td>
+              <td>Dibuja solo el contorno del rectángulo.</td>
+            </tr>
+            <tr>
+              <td><code>clearRect(x, y, ancho, alto)</code></td>
+              <td>Borra una zona del lienzo (la deja transparente).</td>
+            </tr>
+            <tr>
+              <td><code>beginPath()</code></td>
+              <td>Inicia un trazado nuevo.</td>
+            </tr>
+            <tr>
+              <td><code>moveTo(x, y) / lineTo(x, y)</code></td>
+              <td>Sitúa el lápiz sin pintar / traza una línea hasta el punto.</td>
+            </tr>
+            <tr>
+              <td><code>arc(x, y, radio, angIni, angFin)</code></td>
+              <td>Dibuja arcos y círculos (ángulos en radianes; una circunferencia completa es <code>2*PI</code>).</td>
+            </tr>
+            <tr>
+              <td><code>closePath()</code></td>
+              <td>Cierra el trazado uniendo el último punto con el primero.</td>
+            </tr>
+            <tr>
+              <td><code>fill() / stroke()</code></td>
+              <td>Pinta el trazado actual relleno o contorno. Sin esta llamada, el trazado no se ve.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Ejemplo 1: Construcción de un Triángulo y Líneas</h3>
+        <p>Utilizando <code>beginPath()</code>, <code>moveTo()</code> para el primer vértice, varios <code>lineTo()</code>, <code>closePath()</code> y <code>fill()</code>, podemos componer cualquier figura poligonal.</p>
+
+        <div class="canvas-container">
+          <canvas id="lienzoTrazados" width="500" height="300"></canvas>
+          <div class="canvas-controls">
+            <button id="btnTriangulo" class="btn-primary">Dibujar Triángulo</button>
+            <button id="btnLineas" class="btn-primary" style="background-color: #27ae60;">Dibujar Líneas Cruzadas</button>
+            <button id="btnLimpiar" class="btn-primary" style="background-color: #e74c3c;">Limpiar Lienzo</button>
+          </div>
+        </div>
+
+        <h3>Ejemplo 2: Pizarra Interactiva de Trazados</h3>
+        <p>Selecciona un color y el grosor del trazo para dibujar libremente utilizando líneas y rutas con el ratón.</p>
+
+        <div class="canvas-container">
+          <div class="canvas-toolbar">
+            <label>Color: <input type="color" id="colorPicker" value="#e67e22"></label>
+            <label>Grosor: <input type="range" id="grosorRange" min="1" max="20" value="3"></label>
+          </div>
+
+          <canvas id="lienzoLibre" width="500" height="300"></canvas>
+          
+          <div class="canvas-controls">
+            <button id="btnLimpiarLibre" class="btn-primary" style="background-color: #e74c3c;">Limpiar Pizarra</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>
