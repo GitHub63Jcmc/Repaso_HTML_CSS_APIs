@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- EJEMPLO 1: Degradados y Sombra ---
+  // --- EJEMPLO 1: Degradados y Sombra (Primer Lienzo) ---
   const lienzo = document.getElementById('lienzoEstilos');
   if (lienzo) {
     const ctx = lienzo.getContext('2d');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- EJEMPLO 2: Personalizador Interactivo ---
+  // --- EJEMPLO 2: Personalizador Interactivo de Texto y Colores (Segundo Lienzo) ---
   const lienzoPers = document.getElementById('lienzoPersonalizado');
   if (lienzoPers) {
     const ctxPers = lienzoPers.getContext('2d');
@@ -56,19 +56,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const customColor = document.getElementById('customColor');
 
     document.getElementById('btnDibujarRect').addEventListener('click', () => {
-      ctxPers.fillStyle = customColor.value;
-      // Posiciones aleatorias dentro del canvas para que no se superpongan exactamente
-      const x = Math.random() * (lienzoPers.width - 160);
-      const y = Math.random() * (lienzoPers.height - 100);
-      ctxPers.fillRect(x, y, 160, 100);
+      ctxPers.shadowColor = 'rgba(0, 0, 0, 0.5)';
+      ctxPers.shadowBlur = 8;
+      ctxPers.shadowOffsetX = 3;
+      ctxPers.shadowOffsetY = 3;
+
+      const x = Math.random() * (lienzoPers.width - 180);
+      const y = Math.random() * (lienzoPers.height - 110);
+
+      let gradRect = ctxPers.createLinearGradient(x, y, x + 180, y + 110);
+      gradRect.addColorStop(0, customColor.value);
+      gradRect.addColorStop(1, '#ffffff');
+
+      ctxPers.fillStyle = gradRect;
+      ctxPers.fillRect(x, y, 180, 110);
+
+      ctxPers.shadowColor = 'transparent';
     });
 
     document.getElementById('btnEscribirTexto').addEventListener('click', () => {
-      ctxPers.font = 'bold 24px sans-serif';
-      ctxPers.fillStyle = customColor.value;
-      const x = Math.random() * (lienzoPers.width - 250) + 20;
-      const y = Math.random() * (lienzoPers.height - 60) + 30;
+      ctxPers.font = 'bold 26px sans-serif';
+      ctxPers.textAlign = 'left';
+      ctxPers.textBaseline = 'alphabetic';
+
+      ctxPers.shadowColor = 'rgba(0, 0, 0, 0.9)';
+      ctxPers.shadowBlur = 6;
+      ctxPers.shadowOffsetX = 2;
+      ctxPers.shadowOffsetY = 2;
+
+      const x = Math.random() * (lienzoPers.width - 260) + 20;
+      const y = Math.random() * (lienzoPers.height - 80) + 40;
+
+      let gradText = ctxPers.createLinearGradient(x, y - 20, x + 200, y);
+      gradText.addColorStop(0, customColor.value);
+      gradText.addColorStop(1, '#f39c12');
+
+      ctxPers.fillStyle = gradText;
       ctxPers.fillText(customText.value || 'Texto por defecto', x, y);
+
+      ctxPers.shadowColor = 'transparent';
     });
 
     document.getElementById('btnLimpiarPersonalizado').addEventListener('click', () => {

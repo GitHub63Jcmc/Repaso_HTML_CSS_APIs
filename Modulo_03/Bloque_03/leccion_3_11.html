@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.11 Implementación de Web Workers</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_11.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_11.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.11 Implementación de Web Workers: dedicados, compartidos y service workers</h2>
+        <span class="meta-info">Bloque 3 · APIs de Interactividad y Rendimiento</span>
+      </header>
+
+      <article>
+        <p>JavaScript ejecuta todo en un único <strong>hilo principal</strong>, el mismo que pinta la interfaz. Si un cálculo tarda tres segundos, la página queda congelada tres segundos. Los <strong>web workers</strong> resuelven ese cuello de botella: son scripts que corren en paralelo, en un hilo aparte, y se comunican con la página por mensajes[cite: 18].</p>
+
+        <div class="idea-clave">
+          <strong>REGLA DE ORO DEL RENDIMIENTO:</strong> El hilo principal es para la interfaz. Todo cálculo pesado —procesar un archivo, filtrar miles de registros, comprimir una imagen— debería viajar a un worker[cite: 18].
+        </div>
+
+        <h3>Tipos principales de Web Workers</h3>
+        <ul>
+          <li><strong>Worker dedicado:</strong> Se crea con <code>new Worker('tareas.js')</code>. La página le envía datos con <code>postMessage()</code> y los recibe con <code>onmessage</code>[cite: 18].</li>
+          <li><strong>Worker compartido:</strong> Varias pestañas del mismo origen se conectan a un único proceso a través de un puerto (`SharedWorker`)[cite: 18].</li>
+          <li><strong>Service worker:</strong> Un worker especial que actúa como proxy de red entre la web y el servidor, permitiendo funcionamiento sin conexión (PWA)[cite: 18].</li>
+        </ul>
+
+        <h3>Ejemplo Práctico: Worker Dedicado</h3>
+        <p>Prueba a ejecutar una tarea pesada (conteo largo) en segundo plano sin bloquear los botones de la interfaz.</p>
+
+        <div class="worker-container">
+          <div class="worker-toolbar">
+            <button id="btnEjecutar" class="btn-primary">Ejecutar Tarea Pesada</button>
+            <button id="btnSaludar" class="btn-primary" style="background-color: #27ae60;">Probar Fluidez (Click Me)</button>
+          </div>
+          <div id="resultadoWorker" class="worker-result">
+            <p>Estado: <span id="spanEstado">Listo</span></p>
+            <p>Clicks de fluidez: <span id="spanClicks">0</span></p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.7 Almacenamiento local con Web Storage: localStorage y sessionStorage</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_7.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_7.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.7 Almacenamiento local con Web Storage: localStorage y sessionStorage</h2>
+        <span class="meta-info">Bloque 2 · APIs de Geolocalización y Almacenamiento</span>
+      </header>
+
+      <article>
+        <p>Web Storage permite guardar pares <strong>clave-valor</strong> en el navegador, por origen (dominio + protocolo + puerto), con una capacidad orientativa de unos 5 MB, muy superior a la de las cookies. Su API es idéntica en sus dos variantes: <code>setItem('clave', 'valor')</code> guarda, <code>getItem('clave')</code> recupera, <code>removeItem('clave')</code> borra una clave y <code>clear()</code> vacía todo.</p>
+
+        <p>Solo almacena <strong>cadenas de texto</strong>; para objetos se usa <code>JSON.stringify()</code> al guardar y <code>JSON.parse()</code> al leer.</p>
+
+        <div class="storage-comparison">
+          <div class="storage-box">
+            <h3>localStorage</h3>
+            <p><strong>Persistente:</strong> Los datos sobreviven al cierre del navegador y no tienen fecha de caducidad. Usado para preferencias de usuario, temas, etc.</p>
+          </div>
+          <div class="storage-box">
+            <h3>sessionStorage</h3>
+            <p><strong>Temporal:</strong> Vive mientras dura la pestaña; al cerrarla, se borra. Cada pestaña tiene su propia copia independiente.</p>
+          </div>
+        </div>
+
+        <h3>Ejemplo Práctico: Guardar Preferencias con localStorage</h3>
+        <p>Introduce un valor y guárdalo en el almacenamiento local para comprobar su persistencia.</p>
+
+        <div class="storage-container">
+          <div class="storage-toolbar">
+            <input type="text" id="inputDato" placeholder="Escribe algo..." class="input-text">
+            <button id="btnGuardar" class="btn-primary">Guardar en localStorage</button>
+            <button id="btnLeer" class="btn-primary" style="background-color: #27ae60;">Leer Dato</button>
+            <button id="btnBorrar" class="btn-primary" style="background-color: #e74c3c;">Borrar</button>
+          </div>
+          <div id="resultadoStorage" class="storage-result">
+            <p>Valor almacenado: <span id="spanValor">Ninguno</span></p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

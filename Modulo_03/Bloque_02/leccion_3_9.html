@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.9 Diferencias entre almacenamiento en cookies y las nuevas APIs</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_9.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_9.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.9 Diferencias entre almacenamiento en cookies y las nuevas APIs</h2>
+        <span class="meta-info">Bloque 2 · APIs de Geolocalización y Almacenamiento</span>
+      </header>
+
+      <article>
+        <p>Las cookies son muy anteriores a HTML5 y tienen un rasgo que las distingue de todo lo anterior: <strong>viajan al servidor en cada petición HTTP</strong>. Eso las hace idóneas para lo que el servidor necesita saber siempre (mantener la sesión iniciada), y pésimas para almacenar general.</p>
+
+        <div class="idea-clave">
+          <strong>SEGURIDAD EN EL ALMACENAMIENTO:</strong> Salvo las cookies marcadas <code>HttpOnly</code>, todo lo guardado en el navegador es legible por cualquier script que corra en tu página: <strong>nunca almacenes contraseñas ni datos sensibles sin protección en el cliente</strong>, y trata el almacenamiento local como una comodidad, no como una caja fuerte.
+        </div>
+
+        <h3>Comparativa de Sistemas de Almacenamiento</h3>
+        <p>Utiliza la siguiente herramienta interactiva o tabla de referencia rápida para saber qué tecnología elegir en cada caso.</p>
+
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Criterio</th>
+                <th>Cookies</th>
+                <th>localStorage / sessionStorage</th>
+                <th>IndexedDB</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Capacidad</strong></td>
+                <td>~4 KB por cookie</td>
+                <td>~5 MB por origen</td>
+                <td>Cientos de MB o más (cuota por origen)</td>
+              </tr>
+              <tr>
+                <td><strong>¿Viaja al servidor?</strong></td>
+                <td>Sí, en cada petición</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><strong>Caducidad</strong></td>
+                <td>Configurable</td>
+                <td>Sin caducidad / al cerrar la pestaña</td>
+                <td>Sin caducidad</td>
+              </tr>
+              <tr>
+                <td><strong>Tipo de datos</strong></td>
+                <td>Texto breve</td>
+                <td>Cadenas (JSON para objetos)</td>
+                <td>Objetos, archivos, binarios</td>
+              </tr>
+              <tr>
+                <td><strong>Uso típico</strong></td>
+                <td>Sesión y trazas con el servidor</td>
+                <td>Preferencias y datos ligeros</td>
+                <td>Datos voluminosos y trabajo sin conexión</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.4 Manipulación de imágenes y exportación de contenidos</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_4.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_4.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.4 Manipulación de imágenes y exportación de contenidos</h2>
+        <span class="meta-info">Bloque 1 · Gráficos y Dibujo con la API Canvas</span>
+      </header>
+
+      <article>
+        <p>El método <code>drawImage()</code> incorpora al lienzo imágenes ya cargadas (elementos <code>&lt;img&gt;</code>, otros canvas o fotogramas de vídeo) con tres variantes: 3 argumentos (coloca la imagen en unas coordenadas), 5 (con la escala a un ancho y alto) y 9 (recorta una zona del original y la pinta escalada donde se indique).</p>
+
+        <p>Para manipular los píxeles a bajo nivel, <code>getImageData()</code> devuelve la matriz de píxeles de una zona (cuatro valores por píxel: rojo, verde, azul y alfa), que se modifica en JavaScript y se devuelve al lienzo con <code>putImageData()</code>; así se implementan filtros como escala de grises o sepia.</p>
+
+        <div class="idea-clave">
+          <strong>SEGURIDAD (CORS):</strong> Si el lienzo contiene imágenes servidas desde otro dominio que no autoriza su uso mediante CORS —el mecanismo por el que un servidor da permisos a otros sitios para leer sus recursos—, el lienzo queda contaminado y los métodos de lectura y exportación se bloquean.
+        </div>
+
+        <h3>Ejemplo Práctico: Carga de Imagen, Filtro de Píxeles y Exportación</h3>
+        <p>Prueba a cargar una imagen de ejemplo, aplicarle un filtro de escala de grises manipulando sus píxeles, o exportarla directamente como archivo de imagen.</p>
+
+        <div class="canvas-container">
+          <canvas id="lienzoImagen" width="500" height="300"></canvas>
+          <div class="canvas-controls">
+            <button id="btnCargarImg" class="btn-primary">Cargar Imagen</button>
+            <button id="btnFiltroGris" class="btn-primary" style="background-color: #27ae60;">Aplicar Filtro Grises</button>
+            <button id="btnExportar" class="btn-primary" style="background-color: #f39c12;">Exportar Imagen</button>
+            <button id="btnLimpiar" class="btn-primary" style="background-color: #e74c3c;">Limpiar Lienzo</button>
+          </div>
+          <!-- Enlace oculto para la descarga automática de la exportación -->
+          <a id="descargaLink" style="display:none;">Descargar</a>
+        </div>
+
+        <!-- -------------------------------------------------------------------- -->
+         <h3>Ejemplo 2: Cargador e Importador de Imágenes Personalizadas</h3>
+        <p>Sube una imagen desde tu dispositivo o introduce una URL web para visualizarla, aplicarle el filtro de grises y exportarla.</p>
+
+        <div class="canvas-container">
+          <div class="canvas-toolbar">
+            <label>Subir archivo: <input type="file" id="inputFile" accept="image/*" class="input-file"></label>
+            <label>O URL: <input type="text" id="inputUrl" placeholder="https://..." class="input-text"></label>
+            <button id="btnCargarPersonalizada" class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;">Cargar URL</button>
+          </div>
+
+          <canvas id="lienzoPersonalizado" width="500" height="300"></canvas>
+          
+          <div class="canvas-controls">
+            <button id="btnFiltroGrisPers" class="btn-primary" style="background-color: #27ae60;">Aplicar Filtro Grises</button>
+            <button id="btnExportarPers" class="btn-primary" style="background-color: #f39c12;">Exportar Imagen</button>
+            <button id="btnLimpiarPers" class="btn-primary" style="background-color: #e74c3c;">Limpiar Lienzo</button>
+          </div>
+          <a id="descargaLinkPers" style="display:none;">Descargar</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

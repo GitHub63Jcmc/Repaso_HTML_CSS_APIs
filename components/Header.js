@@ -48,7 +48,7 @@ class MainHeader extends HTMLElement {
 
           <!-- Dropdown Módulo 03 -->
           <div class="dropdown">
-            <a href="/Modulo_03/index.html" class="dropdown-trigger">Módulo 03 ▾</a>
+            <a href="/Modulo_03/index.html" class="dropdown-trigger">Módulo 03 ▼</a>
             <div class="dropdown-content">
               <a href="/Modulo_03/index.html">Índice del Módulo</a>
               <a href="/Modulo_03/Bloque_01/leccion_3_1.html">3.1 Introducción al elemento canvas</a>
@@ -56,11 +56,16 @@ class MainHeader extends HTMLElement {
               <a href="/Modulo_03/Bloque_01/leccion_3_3.html">3.3 Gestión de colores y estilos</a>
               <a href="/Modulo_03/Bloque_01/leccion_3_4.html">3.4 Manipulación de imágenes y exportación</a>
               <a href="/Modulo_03/Bloque_01/leccion_3_5.html">3.5 Resumen del bloque 1</a>
-              <a href="/Modulo_03/leccion_3_6.html">3.6 API de Geolocalización</a>
-              <a href="/Modulo_03/leccion_3_7.html">3.7 Almacenamiento local Web Storage</a>
-              <a href="/Modulo_03/leccion_3_8.html">3.8 Consumo de servicios Web Fetch API</a>
-              <a href="/Modulo_03/leccion_3_9.html">3.9 API de Drag & Drop</a>
-              <a href="/Modulo_03/resumen.html">3.10 Resumen del Módulo 3</a>
+              <a href="/Modulo_03/Bloque_02/leccion_3_6.html">3.6 API de Geolocalización</a>
+              <a href="/Modulo_03/Bloque_02/leccion_3_7.html">3.7 Almacenamiento local con Web Storage</a>
+              <a href="/Modulo_03/Bloque_02/leccion_3_8.html">3.8 Introducción a IndexedDB</a>
+              <a href="/Modulo_03/Bloque_02/leccion_3_9.html">3.9 Diferencias entre almacenamiento</a>
+              <a href="/Modulo_03/Bloque_02/leccion_3_10.html">3.10 Resumen del bloque 2</a>
+              <a href="/Modulo_03/Bloque_03/leccion_3_11.html">3.11 Implementación de Web Workers</a>
+              <a href="/Modulo_03/Bloque_03/leccion_3_12.html">3.12 Manejo de la navegación con la API</a>
+              <a href="/Modulo_03/Bloque_03/leccion_3_13.html">3.13 Implementación de funcionalidad drag and drop</a>
+              <a href="/Modulo_03/Bloque_03/leccion_3_14.html">3.14 API Fullscreen y Web Notifications</a>
+              <a href="/Modulo_03/Bloque_03/leccion_3_15.html">3.15 Resumen del bloque 3</a>
             </div>
           </div>
         </nav>

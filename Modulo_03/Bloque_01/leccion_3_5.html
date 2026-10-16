@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.5 Resumen del bloque 1</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_5.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_5.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.5 Resumen del bloque 1</h2>
+        <span class="meta-info">Bloque 1 · Gráficos y Dibujo con la API Canvas</span>
+      </header>
+
+      <article>
+        <div class="idea-clave">
+          <strong>IDEA CLAVE:</strong> El lienzo dibuja píxeles y no recuerda lo que dibujó. Canvas es una superficie de píxeles sobre la que JavaScript pinta. Esa sola frase explica casi todo lo demás: por qué el tamaño se fija en la etiqueta y no en la hoja de estilos, por qué para mover algo hay que borrarlo y volver a dibujarlo, y por qué siempre hace falta contar por escrito lo que ahí se ve[cite: 13].
+        </div>
+
+        <h3>Lo demás que conviene retener</h3>
+        <ul>
+          <li><strong>El tamaño del lienzo</strong> son sus atributos, no su CSS. Sin width ni height mide 300x150, y estirarlo desde la hoja de estilos no añade píxeles: escala los que hay y el dibujo se pixela. El contexto se pide con <code>getContext('2d')</code> y el origen (0,0) está arriba a la izquierda.</li>
+          <li><strong>La única forma primitiva</strong> es el rectángulo; todo lo demás son trazados. <code>beginPath()</code>, <code>moveTo()</code>, <code>lineTo()</code>, arcos y <code>closePath()</code> construyen la figura, pero hasta que no se llama a <code>fill()</code> o a <code>stroke()</code> el trazado no se ve.</li>
+          <li><strong>El pincel se configura</strong> antes de dibujar. <code>fillStyle</code> y <code>strokeStyle</code> admiten cualquier color CSS, <code>lineWidth</code> marca el grosor, y el texto se pinta con <code>fillText()</code> definiendo font con sintaxis CSS; <code>measureText()</code> devuelve el ancho que ocupará, imprescindible para centrar.</li>
+          <li><strong>La elección entre lienzo y vectorial</strong> la decide el tipo de dibujo. Lo que se dibuja son píxeles y no llega al árbol del documento, así que necesita alternativa textual; y si el lienzo contiene imágenes de otro dominio que no autoriza su uso, queda contaminado y se bloquean <code>toDataURL()</code> y <code>toBlob()</code>.</li>
+        </ul>
+
+        <h3>Repaso Interactivo del Bloque 1</h3>
+        <p>Pon a prueba tus conocimientos acumulados sobre Canvas antes de pasar al Bloque 2 de geolocalización.</p>
+
+        <div class="canvas-container">
+          <div class="summary-card">
+            <h4>¡Bloque 1 Completado con Éxito!</h4>
+            <p>Has dominado el uso de la API Canvas, desde coordenadas y trazados geométricos básicos hasta estilos avanzados, renderizado tipográfico, manipulación de píxeles y exportación de imágenes.</p>
+            <button id="btnCompletarBloque" class="btn-primary" style="background-color: #27ae60;">¡Marcar Bloque como Completado!</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

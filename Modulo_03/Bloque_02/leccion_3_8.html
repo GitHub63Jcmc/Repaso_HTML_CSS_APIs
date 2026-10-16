@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.8 Introducción a IndexedDB para bases de datos en el cliente</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_8.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_8.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.8 Introducción a IndexedDB para bases de datos en el cliente</h2>
+        <span class="meta-info">Bloque 2 · APIs de Geolocalización y Almacenamiento</span>
+      </header>
+
+      <article>
+        <p>Cuando los datos crecen o necesitan estructura, Web Storage se queda corto. <strong>IndexedDB</strong> es la base de datos del navegador que guarda objetos JavaScript completos (incluidos archivos y binarios) en almacenes de objetos, con índices para buscar por cualquier campo, transacciones que garantizan la integridad y una capacidad que se mide en cientos de megabytes o más[cite: 19].</p>
+
+        <p>Su API es <strong>asíncrona</strong> y funciona por peticiones y eventos[cite: 19]. Se abre con <code>indexedDB.open('MiDB', 1)</code>, y el evento <code>onupgradeneeded</code> es el único lugar donde se define la estructura mediante <code>createObjectStore()</code>[cite: 19].</p>
+
+        <div class="idea-clave">
+          <strong>TRANSACCIONES Y ACCESO:</strong> Las operaciones se hacen dentro de una transacción con <code>bd.transaction('tareas', 'readwrite')</code> y <code>objectStore('tareas').add(objeto)</code>, con métodos análogos <code>get()</code>, <code>put()</code> y <code>delete()</code> para recorrer registros[cite: 19].
+        </div>
+
+        <h3>Ejemplo Práctico: Gestión Básica en IndexedDB</h3>
+        <p>Añade una tarea de prueba a la base de datos local y lee los registros almacenados.</p>
+
+        <div idDB-container" class="iddb-container">
+          <div class="iddb-toolbar">
+            <input type="text" id="inputTarea" placeholder="Nombre de la tarea..." class="input-text">
+            <button id="btnAñadirDB" class="btn-primary">Guardar en IndexedDB</button>
+            <button id="btnLeerDB" class="btn-primary" style="background-color: #27ae60;">Leer Tareas</button>
+          </div>
+          <div id="resultadoDB" class="iddb-result">
+            <h4>Tareas Registradas:</h4>
+            <ul id="listaTareas">
+              <li><em>Sin datos cargados</em></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

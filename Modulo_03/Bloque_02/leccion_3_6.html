@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.6 API de Geolocalización: obtención de coordenadas y seguimiento</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_6.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_6.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.6 API de Geolocalización: obtención de coordenadas y seguimiento</h2>
+        <span class="meta-info">Bloque 2 · APIs de Geolocalización y Almacenamiento</span>
+      </header>
+
+      <article>
+        <p>La API de Geolocalización permite a una web conocer —con previo permiso del usuario— la posición del dispositivo, combinando GPS, redes wifi y antenas de telefonía. Es la base de los mapas, los buscadores de tiendas cercanas o el seguimiento de rutas deportivas.</p>
+
+        <p>El método principal es <code>getCurrentPosition(exito, error, opciones)</code>. Si todo va bien, la función de éxito recibe un objeto <code>coords</code> cuya propiedad <code>coords.latitude</code>, <code>longitude</code>, <code>accuracy</code> (precisión en metros) y, según el dispositivo, altitud, rumbo y velocidad.</p>
+
+        <div class="idea-clave">
+          <strong>SEGURIDAD Y CONTEXTOS SEGUROS (HTTPS):</strong> El navegador muestra el aviso de permiso y, si el usuario lo rechaza, la aplicación debe seguir funcionando con una alternativa (por ejemplo, pedir el código postal). Además, geolocalización solo funciona en contextos seguros (HTTPS).
+        </div>
+
+        <h3>Ejemplo Práctico: Obtener Coordenadas Actuales</h3>
+        <p>Haz clic en el botón para solicitar tu posición actual al navegador y visualizar los datos de latitud, longitud y precisión.</p>
+
+        <div class="geo-container">
+          <button id="btnObtenerGeo" class="btn-primary">Obtener Mi Posición Actual</button>
+          
+          <div id="geoResultado" class="geo-result" style="display: none;">
+            <p><strong>Latitud:</strong> <span id="lat">--</span></p>
+            <p><strong>Longitud:</strong> <span id="lon">--</span></p>
+            <p><strong>Precisión:</strong> <span id="acc">--</span> metros</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>
