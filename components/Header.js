@@ -66,6 +66,10 @@ class MainHeader extends HTMLElement {
               <a href="/Modulo_03/Bloque_03/leccion_3_13.html">3.13 Implementación de funcionalidad drag and drop</a>
               <a href="/Modulo_03/Bloque_03/leccion_3_14.html">3.14 API Fullscreen y Web Notifications</a>
               <a href="/Modulo_03/Bloque_03/leccion_3_15.html">3.15 Resumen del bloque 3</a>
+              <a href="/Modulo_03/Bloque_04/leccion_4_16.html">3.16 Introducción a Web Sockets</a>
+              <a href="/Modulo_03/Bloque_04/leccion_4_17.html">3.17 Microdatos y API DOM para...</a>
+              <a href="/Modulo_03/Bloque_04/leccion_4_18.html">3.18 Iniciativa e implementación de proyectos basados en APIs de HTML5</a>
+              <a href="/Modulo_03/Bloque_04/leccion_4_19.html">3.19 Resumen del módulo 3</a>
             </div>
           </div>
         </nav>

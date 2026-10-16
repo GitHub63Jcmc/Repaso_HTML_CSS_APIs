@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.13 Implementación de funcionalidades drag and drop</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_13.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_13.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.13 Implementación de funcionalidades drag and drop</h2>
+        <span class="meta-info">Bloque 3 · APIs de Interactividad y Rendimiento</span>
+      </header>
+
+      <article>
+        <p>La API de arrastrar y soltar integra en el navegador un gesto natural del escritorio: mover tarjetas entre columnas, ordenar listas o soltar archivos para subirlos[cite: 13]. Participan dos papeles: el elemento <strong>arrastrable</strong> (que se marca con el atributo <code>draggable="true"</code>) y la <strong>zona de destino</strong>, que debe declarar que acepta soltar[cite: 13].</p>
+
+        <p>Eventos clave del proceso:</p>
+        <ul>
+          <li><code>dragstart</code>: se dispara en el elemento al empezar el arrastre; aquí se guardan los datos con <code>event.dataTransfer.setData('text/plain', id)</code>[cite: 13].</li>
+          <li><code>dragover</code>: se dispara continuamente sobre la zona de destino; hay que llamar a <code>event.preventDefault()</code> porque por defecto los navegadores no permiten soltar[cite: 13].</li>
+          <div></div>
+          <li><code>drop</code>: el suelto propiamente dicho; se recuperan los datos con <code>getData()</code> y se actúa (mover la tarjeta, leer el archivo)[cite: 13].</li>
+        </ul>
+
+        <div class="idea-clave">
+          <strong>CONSIDERACIÓN PROFESIONAL:</strong> El gesto de arrastre no existe para quien navega con teclado, así que ofrece siempre una alternativa accesible (botones de mover, menús contextuales)[cite: 13].
+        </div>
+
+        <h3>Ejemplo Práctico: Arrastrar Elemento Sencillo</h3>
+        <p>Arrastra el bloque azul hacia la zona de destino designada.</p>
+
+        <div class="drag-container">
+          <div class="drag-toolbar">
+            <div id="elementoArrastrable" class="drag-item" draggable="true">¡Arrastrame!</div>
+          </div>
+          <div id="zonaDestino" class="drop-zone">
+            <span>Suelta aquí el elemento</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.15 Resumen del bloque 3</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_15.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_15.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.15 Resumen del bloque 3</h2>
+        <span class="meta-info">Bloque 3 · APIs de Interactividad y Rendimiento</span>
+      </header>
+
+      <article>
+        <div class="idea-clave">
+          <strong>IDEA CLAVE:</strong> El hilo principal es para la interfaz. Este bloque reúne las APIs que arreglan lo que se rompió cuando la web dejó de ser un documento y empezó a ser una aplicación: el cálculo que congela la pantalla, el botón Atrás que no vuelve a ninguna parte, el gesto de arrastrar y el aviso que llega cuando hace falta. Todas comparten una idea: no estorbar a quien está delante[cite: 14].
+        </div>
+
+        <h3>Lo demás que conviene retener</h3>
+        <ul>
+          <li><strong>Todo cálculo pesado viaja a un worker.</strong> Corre en otro hilo y se comunica por mensajes, no puede tocar el DOM ni window, y los datos se copian entre hilos. Declarar una función <code>async</code> no saca del hilo principal: solo el worker lo hace[cite: 14].</li>
+          <li><strong>El service worker es un worker que hace de proxy de red.</strong> Vive más allá de la pestaña, intercepta las peticiones en su evento <code>fetch</code>, puede responder desde la caché y permitir trabajo sin conexión. Exige HTTPS y es la pieza central de las PWA y de las notificaciones push[cite: 14].</li>
+          <li><strong>pushState() cambia la dirección, no lo que hay en el servidor.</strong> La API History devuelve el botón Atrás a las SPA y avisa de los cambios con <code>popstate</code>, pero el servidor tiene que saber responder a esas rutas cuando el usuario recarga o comparte el enlace[cite: 14].</li>
+          <li><strong>Arrastrar, ampliar y avisar son gestos del usuario, y el navegador lo exige.</strong> En <code>dragover</code> hay que llamar a <code>preventDefault()</code> o no se puede soltar; <code>requestFullScreen()</code> y el permiso de notificaciones nacen de un clic; y el arrastre necesita alternativa para quien usa teclado[cite: 14].</li>
+        </ul>
+
+        <div class="summary-container">
+          <div class="summary-card">
+            <h4>¡Bloque 3 Completado!</h4>
+            <p>Queda el último bloque: abrir un canal permanente con el servidor, marcar el contenido para que lo entiendan las máquinas y juntar todas las piezas en un proyecto.</p>
+            <button id="btnCompletarBloque3" class="btn-primary" style="background-color: #27ae60;">¡Marcar Bloque 3 como Completado!</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

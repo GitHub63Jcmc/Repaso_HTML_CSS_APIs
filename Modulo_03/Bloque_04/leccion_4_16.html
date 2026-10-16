@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.16 Introducción a Web Sockets</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_4_16.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_4_16.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.16 Introducción a Web Sockets para comunicación bidireccional</h2>
+        <span class="meta-info">Bloque 4 · Comunicación y Conectividad en Tiempo Real</span>
+      </header>
+
+      <article>
+        <p>HTTP funciona por turnos: el navegador pregunta, el servidor responde y la conversación se cierra. Para un chat, un juego multijugador o un panel de cotizaciones, ese modelo obliga a preguntar sin parar (*polling*), con retardo y tráfico desperdiciado.</p>
+
+        <p><strong>WebSocket</strong> lo sustituye por una conexión <strong>permanente y bidireccional</strong>: tras un apretón de manos inicial sobre HTTP, el canal queda abierto y cualquiera de las dos partes puede enviar mensajes en cualquier momento, con latencia mínima.</p>
+
+        <div class="idea-clave">
+          <strong>USO SENCILLO DESDE JS:</strong> Se instancia de forma muy simple: <code>const ws = new WebSocket('wss://servidor.ejemplo/canal')</code>. A partir de ahí, cuatro eventos llevan toda la lógica: <code>open</code>, <code>message</code>, <code>error</code> y <code>close</code>. Se envía con <code>ws.send(texto)</code>.
+        </div>
+
+        <h3>Ejemplo Práctico: Interacción con WebSocket (Simulado)</h3>
+        <p>Prueba a enviar un mensaje a través del canal bidireccional abierto.</p>
+
+        <div class="ws-container">
+          <div class="ws-toolbar">
+            <input type="text" id="inputMsg" placeholder="Escribe un mensaje..." class="input-text">
+            <button id="btnEnviarWS" class="btn-primary">Enviar por WebSocket</button>
+          </div>
+          <div class="ws-result">
+            <h4>Registro del Canal:</h4>
+            <ul id="listaLogs">
+              <li><em>Esperando conexión...</em></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

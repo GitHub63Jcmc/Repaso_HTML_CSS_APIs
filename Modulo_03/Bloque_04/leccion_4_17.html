@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.17 Microdatos y API DOM para la estructuración de datos</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_4_17.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_4_17.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.17 Microdatos y API DOM para la estructuración de datos</h2>
+        <span class="meta-info">Bloque 4 · Comunicación y Conectividad en Tiempo Real</span>
+      </header>
+
+      <article>
+        <p>Los <strong>microdatos</strong> son un mecanismo de HTML5 para etiquetar el significado de los datos visibles de la página, de modo que las máquinas —sobre todo los buscadores— los entiendan[cite: 14]: qué es un producto, su precio, la valoración, un evento y su fecha[cite: 14]. Se usan tres atributos principales[cite: 14]: <code>itemscope</code> (declara un elemento con los datos)[cite: 14], <code>itemtype</code> (indica el tipo según un vocabulario como schema.org)[cite: 14] e <code>itemprop</code> (marca cada propiedad dentro del ítem)[cite: 14].</p>
+
+        <p>La <strong>API DOM (Document Object Model)</strong> es la representación viva del documento: el navegador convierte el HTML en un árbol de nodos que JavaScript puede consultar y modificar[cite: 14].</p>
+
+        <div class="idea-clave">
+          <strong>SEGURIDAD EN EL DOM:</strong> Para insertar texto usa siempre <code>textContent</code> y reserva <code>innerHTML</code> solo para confianza, ya que insertar texto ajeno como HTML abre la puerta a ataques de inyección de scripts (XSS)[cite: 14].
+        </div>
+
+        <h3>Ejemplo Práctico: Microdatos y Manipulación DOM</h3>
+        <p>Interactúa con el componente para ver cómo se estructuran microdatos y cómo el DOM actualiza nodos de manera dinámica.</p>
+
+        <div class="dom-container">
+          <div itemscope itemtype="https://schema.org/Product" class="product-card-microdata">
+            <h3 itemprop="name">Smartphone Avanzado API</h3>
+            <p itemprop="description">Dispositivo móvil con soporte completo para APIs de HTML5.</p>
+            <p>Precio: <span itemprop="price">499</span>€</p>
+          </div>
+
+          <div class="dom-toolbar">
+            <button id="btnModificarDOM" class="btn-primary">Modificar Descripción vía DOM</button>
+            <button id="btnAñadirNodo" class="btn-primary" style="background-color: #27ae60;">Añadir Característica</button>
+          </div>
+
+          <div id="resultadoDOM" class="dom-result">
+            <h4>Características adicionales:</h4>
+            <ul id="listaCaracteristicas">
+              <li><em>Sin elementos dinámicos</em></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

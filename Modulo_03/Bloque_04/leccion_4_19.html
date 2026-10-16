@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.19 Resumen del módulo 3</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_4_19.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_4_19.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.19 Resumen del módulo 3</h2>
+        <span class="meta-info">Bloque 4 · Comunicación y Conectividad en Tiempo Real</span>
+      </header>
+
+      <article>
+        <div class="idea-clave">
+          <strong>IDEA CLAVE:</strong> Cada API resuelve un problema concreto, y la pregunta es cuál tienes delante. Este módulo no es un catálogo de novedades: es un repertorio de respuestas a problemas que aparecieron cuando la web dejó de ser un documento y pasó a ser una aplicación. Dibujar sin imágenes, guardar en el equipo del usuario, no congelar la interfaz, recuperar el botón Atrás, hablar con el servidor sin esperar turno. La profesional no es cual es más moderna, sino que hace falta, que se comprueba antes de usarla y que pasa cuando el navegador no la tiene[cite: 14].
+        </div>
+
+        <h3>Lo demás que conviene retener</h3>
+        <ul>
+          <li><strong>Canvas dibuja píxeles y no recuerda lo que dibujó.</strong> El tamaño son sus atributos y no los CSS, la única forma primitiva es el rectángulo y para mover algo hay que borrarlo y volver a pintarlo. SVG, y lo dibujado nunca llega al árbol del documento, así que necesita alternativa textual[cite: 14].</li>
+          <li><strong>La geolocalización es un permiso, no un dato garantizado.</strong> Solo funciona sobre HTTPS, el usuario puede negarla y la aplicación tiene que seguir funcionando sin ella[cite: 14].</li>
+          <li><strong>Cada dato tiene su sitio.</strong> Web Storage para cadenas pequeñas por origen, IndexedDB cuando los datos crecen o necesitan estructura, y la cookie solo para lo de verdad que tiene que viajar al servidor en cada petición. Ninguno de los tres es una caja fuerte[cite: 14].</li>
+          <li><strong>El hilo principal es para la interfaz.</strong> El cálculo pesado va a un worker, que corre aparte, se comunica por mensajes y no puede tocar el DOM. El service worker es un proxy de red que vive más allá de la pestaña[cite: 14].</li>
+          <li><strong>Arrastrar, ampliar y avisar son gestos del usuario, y el navegador lo exige.</strong> Sin <code>preventDefault()</code> en <code>dragover</code> no se puede soltar, y la pantalla completa y las notificaciones piden una acción deliberada[cite: 14].</li>
+          <li><strong>WebSocket cambia el turno de HTTP por un canal abierto en los dos sentidos,</strong> siempre sobre wss://. Si el flujo va solo del servidor al cliente, los Server-Sent Events son más simples[cite: 14].</li>
+          <li><strong>El DOM es el pegamento de todas ellas,</strong> y los microdatos añaden significado legible para máquinas a lo que ya se ve en la página[cite: 14].</li>
+        </ul>
+
+        <div class="summary-container">
+          <div class="summary-card">
+            <h4>¡Módulo 3 Finalizado con Éxito!</h4>
+            <p>Has completado todas las lecciones del Módulo 3. ¡Es momento de celebrar este gran avance en el desarrollo web moderno!</p>
+            <button id="btnTerminarModulo" class="btn-primary" style="background-color: #27ae60;">¡Terminar el Módulo 3!</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

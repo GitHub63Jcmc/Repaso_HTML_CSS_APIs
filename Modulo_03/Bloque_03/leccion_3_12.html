@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.12 Manejo de la navegación con la API History</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_12.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_12.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.12 Manejo de la navegación con la API History</h2>
+        <span class="meta-info">Bloque 3 · APIs de Interactividad y Rendimiento</span>
+      </header>
+
+      <article>
+        <p>En las <em>single-page applications</em> (SPA) el contenido cambia sin recargar la página, y eso rompía los gestos básicos del usuario: el botón Atrás y el poder copiar la URL. La <strong>API History</strong> lo arregla manipulando el historial desde JavaScript.</p>
+
+        <p>Métodos clave:</p>
+        <ul>
+          <li><code>history.pushState(estado, '', '/productos/42')</code>: añade una entrada nueva y cambia la URL de la barra sin recargar.</li>
+          <li><code>history.replaceState()</code>: modifica la entrada actual en vez de añadir otra.</li>
+          <li>Eventos como <code>popstate</code>: se dispara al navegar con los botones del navegador, permitiendo restaurar la vista correspondiente.</li>
+        </ul>
+
+        <div class="idea-clave">
+          <strong>Avisos de implementación:</strong> El objeto de estado debe ser serializable, y el servidor tiene que saber responder a esas URLs simuladas (si el usuario recarga en <code>/productos/42</code>, esa ruta debe devolver la aplicación, no un error 404).
+        </div>
+
+        <h3>Ejemplo Práctico: Simulación de Navegación SPA con History</h3>
+        <p>Cambia de vista simulada de forma dinámica actualizando la URL y el estado sin recargar la página.</p>
+
+        <div class="history-container">
+          <div class="history-toolbar">
+            <button id="btnHome" class="btn-primary">Ir a Inicio</button>
+            <button id="btnPerfil" class="btn-primary" style="background-color: #27ae60;">Ir a Perfil</button>
+            <button id="btnConfig" class="btn-primary" style="background-color: #8e44ad;">Ir a Configuración</button>
+          </div>
+          <div id="vistaActual" class="history-result">
+            <h3>Vista actual: <span id="spanVista">Inicio</span></h3>
+            <p>URL simulada actual: <span id="spanUrl">/index.html</span></p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>

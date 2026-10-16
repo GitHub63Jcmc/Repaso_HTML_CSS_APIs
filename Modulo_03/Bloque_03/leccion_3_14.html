@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.14 API Fullscreen y Web Notifications</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="css/leccion_3_14.css">
+  
+  <script src="../../components/Header.js" defer></script>
+  <script src="../../components/Footer.js" defer></script>
+  <script src="js/leccion_3_14.js" defer></script>
+</head>
+<body>
+
+  <main-header></main-header>
+
+  <main class="contenedor-principal">
+    <section class="tarjeta-contenido">
+      <header class="card-header">
+        <h2>3.14 API Fullscreen y Web Notifications para mejorar la experiencia</h2>
+        <span class="meta-info">Bloque 3 · APIs de Interactividad y Rendimiento</span>
+      </header>
+
+      <article>
+        <p>La <strong>API Fullscreen</strong> lleva cualquier elemento a pantalla completa: videos, galerías, juegos o paneles de control. Se solicita sobre el elemento con <code>element.requestFullscreen()</code> y se sale con <code>document.exitFullscreen()</code>.</p>
+
+        <p>La <strong>API Web Notifications</strong> muestran avisos del sistema fuera de la página. Pide permiso con <code>Notification.requestPermission()</code> —que devuelve una promesa con *granted*, *denied* o *default*— y, concedida, se lanza con <code>new Notification('Título', { body: 'Detalle' })</code>.</p>
+
+        <div class="idea-clave">
+          <strong>GESTO DE USUARIO OBLIGATORIO:</strong> Tanto el modo pantalla completa como la petición de notificaciones <strong>exigen la acción directa del usuario (un clic)</strong> por motivos de seguridad; no se pueden invocar automáticamente al cargar la página.
+        </div>
+
+        <h3>Ejemplo Práctico: Pantalla Completa y Notificaciones</h3>
+        <p>Prueba a alternar el modo pantalla completa de la tarjeta y a enviar una notificación de prueba.</p>
+
+        <div id="cajaInteractiva" class="fn-container">
+          <div class="fn-toolbar">
+            <button id="btnFullscreen" class="btn-primary">Alternar Pantalla Completa</button>
+            <button id="btnNotif" class="btn-primary" style="background-color: #27ae60;">Enviar Notificación</button>
+          </div>
+          <div class="fn-result">
+            <p>Estado Fullscreen: <span id="spanFsStatus">Inactivo</span></p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <main-footer></main-footer>
+
+</body>
+</html>
